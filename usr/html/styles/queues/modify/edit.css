@@ -1,0 +1,104 @@
+/*
+* jQuery UI CSS Framework
+* Copyright (c) 2009 AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT (MIT-LICENSE.txt) and GPL (GPL-LICENSE.txt) licenses.
+*/
+
+/* Interaction Cues
+----------------------------------*/
+#mainTabs .ui-state-disabled { cursor: default !important; }
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+#mainTabs .ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+#mainTabs .ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+
+/*
+* jQuery UI CSS Framework
+* Copyright (c) 2009 AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT (MIT-LICENSE.txt) and GPL (GPL-LICENSE.txt) licenses.
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana,Arial,sans-serif&fwDefault=bold&fsDefault=1.3em&cornerRadius=0px&bgColorHeader=ffffff&bgTextureHeader=01_flat.png&bgImgOpacityHeader=100&borderColorHeader=ffffff&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=222222&bgColorDefault=d5d5d5&bgTextureDefault=01_flat.png&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=ffffff&iconColorDefault=888888&bgColorHover=d5d5d5&bgTextureHover=01_flat.png&bgImgOpacityHover=100&borderColorHover=cccccc&fcHover=6c6c6c&iconColorHover=454545&bgColorActive=3274D0&bgTextureActive=01_flat.png&bgImgOpacityActive=100&borderColorActive=cccccc&fcActive=ffffff&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=05_inset_soft.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+*/
+
+
+/* Component containers
+----------------------------------*/
+#mainTabs .ui-widget li a { font-size: 1.3em; }
+#mainTabs .ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff; color: #222222; }
+#mainTabs .ui-widget-content a { color: #222222; }
+#mainTabs .ui-widget-header { border-bottom: 1px solid #ccc; background: #ffffff; color: #222222; font-weight: bold; }
+#mainTabs .ui-widget-header a { color: #222222; }
+
+/* Interaction states
+----------------------------------*/
+#mainTabs .ui-state-default, #mainTabs .ui-widget-content .ui-state-default { border: 1px solid #cccccc; background: #d5d5d5; font-weight: bold; color: #ffffff; outline: none; }
+#mainTabs .ui-state-default a, #mainTabs .ui-state-default a:link, #mainTabs .ui-state-default a:visited { color: #ffffff; text-decoration: none; outline: none; }
+#mainTabs .ui-state-hover, #mainTabs .ui-widget-content .ui-state-hover, #mainTabs .ui-state-focus, #mainTabs .ui-widget-content .ui-state-focus { border: 1px solid #cccccc; background: #d5d5d5; font-weight: bold; color: #6c6c6c; outline: none; }
+#mainTabs .ui-state-hover a, #mainTabs .ui-state-hover a:hover { color: #6c6c6c; text-decoration: none; outline: none; }
+#mainTabs .ui-state-active, #mainTabs .ui-widget-content .ui-state-active { border: 1px solid #cccccc; background: #3274D0; font-weight: bold; color: #ffffff; outline: none; }
+#mainTabs .ui-state-active a, #mainTabs .ui-state-active a:link, #mainTabs .ui-state-active a:visited { color: #ffffff; outline: none; text-decoration: none; }
+
+/* Interaction Cues
+----------------------------------*/
+#mainTabs .ui-state-highlight, #mainTabs .ui-widget-content .ui-state-highlight {border: 1px solid #fcefa1; background: #fbf9ee; color: #363636; }
+#mainTabs .ui-state-highlight a, #mainTabs .ui-widget-content .ui-state-highlight a { color: #363636; }
+#mainTabs .ui-state-error, #mainTabs .ui-widget-content .ui-state-error {border: 1px solid #cd0a0a; background: #fef1ec; color: #cd0a0a; }
+#mainTabs .ui-state-error a, #mainTabs .ui-widget-content .ui-state-error a { color: #cd0a0a; }
+#mainTabs .ui-state-error-text, #mainTabs .ui-widget-content .ui-state-error-text { color: #cd0a0a; }
+#mainTabs .ui-state-disabled, #mainTabs .ui-widget-content .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
+#mainTabs .ui-priority-primary, #mainTabs .ui-widget-content .ui-priority-primary { font-weight: bold; }
+#mainTabs .ui-priority-secondary, #mainTabs .ui-widget-content .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+#mainTabs .ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_222222_256x240.png); }
+#mainTabs .ui-widget-content .ui-icon {background-image: url(images/ui-icons_222222_256x240.png); }
+#mainTabs .ui-widget-header .ui-icon {background-image: url(images/ui-icons_222222_256x240.png); }
+#mainTabs .ui-state-default .ui-icon { background-image: url(images/ui-icons_888888_256x240.png); }
+#mainTabs .ui-state-hover .ui-icon, #mainTabs .ui-state-focus .ui-icon {background-image: url(images/ui-icons_454545_256x240.png); }
+#mainTabs .ui-state-active .ui-icon {background-image: url(images/ui-icons_454545_256x240.png); }
+#mainTabs .ui-state-highlight .ui-icon {background-image: url(images/ui-icons_2e83ff_256x240.png); }
+#mainTabs .ui-state-error .ui-icon, #mainTabs .ui-state-error-text .ui-icon {background-image: url(images/ui-icons_cd0a0a_256x240.png); }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+#mainTabs .ui-corner-tl { -moz-border-radius-topleft: 0px; -webkit-border-top-left-radius: 0px; }
+#mainTabs .ui-corner-tr { -moz-border-radius-topright: 0px; -webkit-border-top-right-radius: 0px; }
+#mainTabs .ui-corner-bl { -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px; }
+#mainTabs .ui-corner-br { -moz-border-radius-bottomright: 0px; -webkit-border-bottom-right-radius: 0px; }
+#mainTabs .ui-corner-top { -moz-border-radius-topleft: 0px; -webkit-border-top-left-radius: 0px; -moz-border-radius-topright: 0px; -webkit-border-top-right-radius: 0px; }
+#mainTabs .ui-corner-bottom { -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px; -moz-border-radius-bottomright: 0px; -webkit-border-bottom-right-radius: 0px; }
+#mainTabs .ui-corner-right {  -moz-border-radius-topright: 0px; -webkit-border-top-right-radius: 0px; -moz-border-radius-bottomright: 0px; -webkit-border-bottom-right-radius: 0px; }
+#mainTabs .ui-corner-left { -moz-border-radius-topleft: 0px; -webkit-border-top-left-radius: 0px; -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px; }
+#mainTabs .ui-corner-all { -moz-border-radius: 0px; -webkit-border-radius: 0px; }
+
+/* Overlays */
+#mainTabs .ui-widget-overlay { background: #aaaaaa; opacity: .30;filter:Alpha(Opacity=30); }
+#mainTabs .ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; background: #aaaaaa; opacity: .30;filter:Alpha(Opacity=30); -moz-border-radius: 8px; -webkit-border-radius: 8px; }/* Accordion
+----------------------------------*/
+
+#mainTabs .ui-tabs { padding: 0; zoom: 1; }
+#mainTabs .ui-tabs .ui-tabs-nav { list-style: none; position: relative; padding: 0;}
+#mainTabs .ui-tabs .ui-tabs-nav li { position: relative; float: left; border-bottom-width: 0 !important; margin: 0 .2em -1px 0; padding: 0; }
+#mainTabs .ui-tabs .ui-tabs-nav li a { float: left; text-decoration: none; padding: 0 10px 0 10px; }
+#mainTabs .ui-tabs .ui-tabs-nav li.ui-tabs-selected { padding-bottom: 1px; border-bottom-width: 0; }
+#mainTabs .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, #mainTabs .ui-tabs .ui-tabs-nav li.ui-state-disabled a, #mainTabs .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+#mainTabs .ui-tabs .ui-tabs-nav li a, #mainTabs .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+#mainTabs .ui-tabs .ui-tabs-panel { padding: 0; display: block; border-width: 0; border-left: 0px !important; background: none; }
+#mainTabs .ui-tabs .ui-tabs-hide { display: none !important; }

@@ -1,0 +1,74 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+<div class='span-22 last'>
+	<span style='font-size: 1.5em;'>Logging</span>
+</div>
+<hr class='space'/>
+<div class='span-15 colborder'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<form id='form-submit'>
+		<h4>Log Level</h4>
+		<div class='small quiet'>
+			Defines the level of logging that <?php echo _APPLICATION; ?> does. A higher level means more logging
+		</div>
+		<div>
+			<select name='log-level'>
+				<?php foreach($this->logLevels as $level): ?>
+					<?php if ($this->config->debug->log->mask == $level): ?>
+						<option value='<?php echo $level; ?>' selected='selected'><?php echo $level; ?>
+					<?php else: ?>
+						<option value='<?php echo $level; ?>'><?php echo $level; ?>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</select>
+		</div>
+
+		<hr class='space'/>
+
+		<h4>Log Files</h4>
+		<div class='small quiet'>
+			Specify the paths to where you want <?php echo _APPLICATION; ?> to store log files. Depending on the
+			feature of <?php echo _APPLICATION; ?> in use, log files will be sent to different places. If you want,
+			you can send all entries to one file, there's no real restriction in that regard.
+		</div>
+		<div class='log-file-inputs'>
+			<input type='text' name='log-messages' class='input-txt' value='<?php echo $this->config->debug->log->messages; ?>'><br>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='message error append-bottom'>
+			<span class='content'></span>
+			&nbsp;&nbsp;
+			<span class='hypertext close'>close</span>
+		</div>
+
+		<div class='span-15 last clearfix form-ops' style='text-align: center;'>
+			<input id='btn-save' type='button' value='Save'>
+			<a class='hypertext' style='padding-left: 20px;' href='<?php echo $this->baseUrl(); ?>/admin'>cancel</a>
+		</div>
+	</form>
+</div>
+<div class='span-6 last' style='text-align: justify;'>
+	<p>
+	<?php echo _APPLICATION; ?> includes logging functionality to better help you debug any problems that
+	may arise. By default, <?php echo _APPLICATION; ?> comes configured to log only messages that are on
+	the level of Error or greater. This can be changed though as you see fit.
+	</p>
+	<p>
+	The greater your logging level, the more verbose <?php echo _APPLICATION; ?> will be when writing logs.
+	Be aware that you may quickly fill up your disk, or slow down <?php echo _APPLICATION; ?> if
+	verbose logging is enabled on a busy installation.
+	<p>
+	If you need to know more about what is logged at what level, visit the
+	<a class='hypertext' target='_blank' href='<?php echo $this->config->links->wiki; ?>'>wiki</a>
+	</p>
+</div>
+</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

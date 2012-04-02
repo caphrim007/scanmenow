@@ -1,0 +1,280 @@
+.ui-widget-content {
+	background: #ffffff !important;
+	color: #222222;
+}
+.ui-widget-content a {
+	color: #222222;
+}
+.ui-widget-header {
+	color: #222222;
+	font-weight: bold;
+	border: none;
+}
+.ui-widget-header a {
+	color: #222222;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+	border: 1px solid #d3d3d3;
+	font-weight: normal;
+	color: #555555;
+	outline: none;
+	background-color: #dadada;
+}
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+	color: #555555;
+	text-decoration: none;
+	outline: none;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus {
+	border: 1px solid #999999;
+	background-color: #dadada;
+	font-weight: normal;
+	color: #212121;
+	outline: none;
+}
+.ui-state-hover a,
+.ui-state-hover a:hover {
+	color: #212121;
+	text-decoration: none;
+	outline: none;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active {
+	border: 1px solid #eee;
+	background-color: #ffffff;
+	font-weight: normal;
+	color: #212121;
+	outline: none;
+}
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+	color: #212121;
+	outline: none;
+	text-decoration: none;
+}
+
+.ui-widget-overlay {
+	background-color: #000;
+	opacity: .60;
+	filter: Alpha(Opacity=60);
+}
+
+/* Dialog
+----------------------------------*/
+.ui-dialog {
+	position: relative;
+	width: 300px;
+	padding: 0;
+}
+.ui-dialog .ui-dialog-titlebar {
+	display: none;
+}
+.ui-dialog .ui-dialog-title {
+	float: left;
+	margin: .1em 0 .2em;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+	position: absolute;
+	right: .3em;
+	top: 50%;
+	width: 19px;
+	margin: -10px 0 0 0;
+	padding: 1px;
+	height: 18px;
+}
+.ui-dialog .ui-dialog-content {
+	border: 0;
+	overflow: none;
+	padding: 0;
+}
+.ui-dialog .ui-dialog-buttonpane {
+	text-align: left;
+	border-width: 1px 0 0 0;
+	background-image: none;
+	margin: .5em 0 0 0;
+	padding: .3em 1em .5em .4em;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+	float: right;
+	margin: .5em .4em .5em 0;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	line-height: 1.4em;
+	width: auto;
+	overflow: visible;
+}
+
+/* Tabs
+----------------------------------*/
+.ui-tabs {
+	padding: .2em; zoom: 1;
+}
+.ui-tabs .ui-tabs-nav {
+	list-style: none;
+	position: relative;
+	padding: .2em 0 0;
+	border-bottom: 1px solid #eee;
+}
+
+.ui-tabs .ui-tabs-nav li {
+	position: relative;
+	float: left;
+	border-bottom-width: 0 !important;
+	margin: 0 .2em -1px 0;
+	padding: 0;
+}
+.ui-tabs .ui-tabs-nav li a {
+	float: left;
+	text-decoration: none;
+	padding: .5em 1em;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+	padding-bottom: 1px;
+	border-bottom-width: 0;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a,
+.ui-tabs .ui-tabs-nav li.ui-state-disabled a,
+.ui-tabs .ui-tabs-nav li.ui-state-processing a {
+	cursor: text;
+}
+.ui-tabs .ui-tabs-nav li a,
+.ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+	cursor: pointer;
+}
+
+/* first selector in group seems obsolete, but required to
+overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel {
+	padding: 1em 1.4em;
+	display: block;
+	border-left: 1px solid #eee !important;
+	background: none;
+}
+.ui-tabs .ui-tabs-hide { display: none !important; }
+
+
+/* Vertical Tabs
+----------------------------------*/
+.ui-tabs-vertical {
+	width: 55em;
+}
+.ui-tabs-vertical .ui-tabs-nav {
+	padding: .2em .1em .2em .2em; float: left; width: 12em;
+	border-bottom: 0;
+}
+.ui-tabs-vertical .ui-tabs-nav li {
+	clear: left;
+	width: 100%;
+	border-bottom-width: 1px !important;
+	border-right-width: 0 !important; margin: 0 -1px .2em 0;
+}
+.ui-tabs-vertical .ui-tabs-nav li a {
+	display:block;
+}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-selected {
+	padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px;
+}
+.ui-tabs-vertical .ui-tabs-panel {
+	padding: 1em; float: right; width: 40em;
+}
+
+/* Account map dialog box
+----------------------------------*/
+.mapping-dialog {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+.mapping-dialog a.ui-dialog-titlebar-close {
+	display: none;
+}
+
+/* Permissions dialog box
+----------------------------------*/
+.permissions-dialog {
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+}
+.permissions-dialog a.ui-dialog-titlebar-close {
+	display: none;
+}
+/* Database dialog box
+----------------------------------*/
+.database-dialog {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+.database-dialog a.ui-dialog-titlebar-close {
+	display: none;
+}
+/* Tags dialog box
+----------------------------------*/
+.tags-dialog {
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+}
+.tags-dialog a.ui-dialog-titlebar-close {
+	display: none;
+}
+/* Map dialog box
+----------------------------------*/
+.map-dialog {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+.map-dialog a.ui-dialog-titlebar-close {
+	display: none;
+}
+/* Snapshot dialog box
+----------------------------------*/
+.snapshot-dialog {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+.snapshot-dialog a.ui-dialog-titlebar-close {
+	display: none;
+}
+/* Regex dialog box
+----------------------------------*/
+.regex-dialog {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+.regex-dialog a.ui-dialog-titlebar-close {
+	display: none;
+}
+/* Export dialog box
+----------------------------------*/
+.export-dialog {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	position: absolute;
+}
+.export-dialog a.ui-dialog-titlebar-close {
+	display: none;
+}
+/* Admin page config dialog box
+----------------------------------*/
+.config-dialog {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+.url-extras-dialog #tabs div {
+	border-left: 0px !important;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+/* Overrides for the interface page of the settings module */
+#interface .ui-slider { border: 1px solid #aaa !important; }
+#interface .ui-corner-all { -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+#interface .ui-slider-range { background: #84AAD1; font-weight: bold; }
+#interface .ui-slider-handle.ui-state-active, #interface .ui-slider-handle.ui-state-active { border: 1px solid #eee; background-color: #dadada; font-weight: normal; color: #212121; outline: none; }
+#interface .ui-slider-handle.ui-state-default, #interface .ui-slider-handle.ui-state-default { border: 1px solid #d3d3d3; font-weight: normal; color: #555555; outline: none; background-color: #dadada; }

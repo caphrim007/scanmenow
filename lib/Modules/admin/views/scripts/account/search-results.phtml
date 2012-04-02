@@ -1,0 +1,32 @@
+<?php if (empty($this->results)): ?>
+	<div class='prepend-top no-results-mesg'>
+		No accounts were found
+	</div>
+<?php else: ?>
+<div class='selectable last policy-list list'>
+	<table>
+		<thead>
+			<tr>
+				<th class='check'><input type='checkbox'></th>
+				<th colspan='2'>Account</th>
+			</tr>
+		</thead>
+		<tbody>
+<?php foreach ($this->results as $key => $account): ?>
+	<tr class='row'>
+		<td class='check'>
+			<input type='checkbox' name='accountId' value='<?php echo $account['id']; ?>'>
+		</td>
+		<td style='width: 70%; border-bottom: 1px solid #cdcdcd;'>
+			<a class='hypertext' href='<?php echo $this->baseUrl() ;?>/account/modify/edit?id=<?php echo $account['id']; ?>'><?php echo $account['username'] ; ?></a>
+		</td>
+		<td class='icons'>
+			<input type='hidden' name='id' value='<?php echo $account['id']; ?>'>
+			<img class='trash' src='<?php echo $this->baseUrl(); ?>/usr/images/trash.gif' alt='Delete account' title='Delete account'>
+		</td>
+	</tr>
+<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>
+<?php endif; ?>

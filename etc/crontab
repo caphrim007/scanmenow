@@ -1,0 +1,10 @@
+#
+# Miscellaneous contrib scripts
+#
+* * * * * /usr/local/bin/php /var/www/html/scanmenow/bin/maintenance.php -r -t /var/www/html/scanmenow/lib/Maintenance/Plugin/Contrib/ApcCacheInformation.php -G
+
+#
+# Cleanup maintenance scripts
+#
+* * * * * /usr/local/bin/php /var/www/html/scanmenow/bin/maintenance.php -r -t /var/www/html/scanmenow/lib/Maintenance/Plugin/CleanTokens.php -G
+* * * * * /usr/local/bin/php /var/www/html/scanmenow/bin/maintenance.php -r -t /var/www/html/scanmenow/lib/Maintenance/Plugin/CleanUnassignedRoles.php -G

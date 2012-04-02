@@ -1,0 +1,7 @@
+<?php if ($this->action == 'index'): ?>
+	<script src='<?php echo $this->baseUrl(); ?>/usr/html/javascript/account/mappings/index.js' type='text/javascript'></script>
+	<script src='<?php echo $this->baseUrl(); ?>/usr/html/javascript/jquery/ui/ui.dialog.js' type='text/javascript'></script>
+	<script src='<?php echo $this->baseUrl(); ?>/usr/html/javascript/jquery/plugins/jquery.shiftcheckbox.js' type='text/javascript'></script>
+<?php elseif ($this->action == 'edit'): ?>
+	<script src='<?php echo $this->baseUrl(); ?>/usr/html/javascript/account/mappings/edit.js' type='text/javascript'></script>
+<?php endif; ?>

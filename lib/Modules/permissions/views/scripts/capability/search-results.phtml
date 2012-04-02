@@ -1,0 +1,32 @@
+<?php if (empty($this->results)): ?>
+	<div class='prepend-top no-results-mesg'>
+		No capabilities were found
+	</div>
+<?php else: ?>
+<div class='selectable last policy-list list'>
+	<table>
+		<thead>
+			<tr>
+				<th class='check'><input type='checkbox'></th>
+				<th colspan='2'>Capability</th>
+			</tr>
+		</thead>
+		<tbody>
+<?php foreach ($this->results as $key => $permission): ?>
+	<tr class='row'>
+		<td class='check'>
+			<input type='checkbox' name='permissionId' value='<?php echo $permission['permission_id']; ?>'>
+		</td>
+		<td style='width: 70%; border-bottom: 1px solid #cdcdcd;'>
+			<?php echo $permission['permission_resource'] ; ?>
+		</td>
+		<td class='icons'>
+			<input type='hidden' name='permissionId' value='<?php echo $permission['permission_id']; ?>'>
+			<img class='trash' src='<?php echo $this->baseUrl(); ?>/usr/images/trash.gif' alt='Delete permission' title='Delete permission'>
+		</td>
+	</tr>
+<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>
+<?php endif; ?>

@@ -1,0 +1,190 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+
+<div class='span-22 last'>
+<?php if ($this->isNew): ?>
+	<div class='span-12' style='font-size: 1.5em;'>
+		<a href='<?php echo $this->baseUrl(); ?>/admin/roles' class='hypertext'>Roles</a> &raquo;
+		Create role
+		<img class='progress' src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+	</div>
+<?php else: ?>
+	<div class='span-22'>
+		<div class='span-12' style='font-size: 1.5em;'>
+			<a href='<?php echo $this->baseUrl(); ?>/admin/roles' class='hypertext'>Roles</a> &raquo;
+			Edit role
+			<img class='progress' src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+		</div>
+		<div class='span-10 last' style='text-align: right;'>
+			<a href='<?php echo $this->baseUrl(); ?>/permissions/capability' class='hypertext'>modify permissions</a>
+		</div>
+	</div>
+<?php endif; ?>
+</div>
+<hr class='space'/>
+<div class='span-22 last'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<form id='form-submit' method='post' action='<?php echo $this->baseUrl(); ?>/admin/roles/save'>
+		<input type='hidden' name='id' value='<?php echo $this->id; ?>'>
+
+		<div>
+			<h4>Role name</h4>
+			<div>
+				<?php if (empty($this->info['name'])): ?>
+				<input type='text' name='role-name' style='width: 50%;' value='New role'>
+				<?php else: ?>
+				<input type='text' name='role-name' style='width: 50%;' value='<?php echo $this->info['name']; ?>'>
+				<?php endif; ?>
+			</div>
+		</div>
+
+		<hr class='space'/>
+
+		<div>
+			<h4>Role description</h4>
+			<div>
+				<textarea name='role-description' style='width: 50%; height: 75px;'><?php echo @$this->info['description']; ?></textarea>
+			</div>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='permission-block capability'>
+			<h4 style='font-weight: bold;'>Capabilities</h4>
+			<div class='small quiet append-bottom'>
+				Select specific capabilities for this role
+			</div>
+
+			<div class='span-5'>
+				Available capabilities
+			</div>
+			<div class='span-5' style='text-align: right;'>
+				<span class='hypertext add-all'>add all &raquo;</span>
+			</div>
+			<div class='span-1'>&nbsp;</div>
+			<div class='span-5'>
+				Selected capabilities
+			</div>
+			<div class='span-5 last' style='text-align: right;'>
+				<span class='hypertext clear-all'>clear all &laquo;</span>
+			</div>
+
+			<div class='permissions'>
+				<div class='span-10'>
+					<ol class='selectable available'>
+						<?php if (!empty($this->allCapabilities)): ?>
+						<?php foreach($this->allCapabilities as $capability): ?>
+							<?php if ($this->inSelected($capability['permission_resource'], $this->selectedCapabilities)): ?>
+							<li class='<?php echo $capability['permission_id']; ?>'>
+								<input type='hidden' name='available-capability[]' value='<?php echo $capability['permission_id']; ?>'>
+								<img src='<?php echo $this->baseUrl(); ?>/usr/images/forward-selected.png'>&nbsp;&nbsp;
+								<span><?php echo $capability['permission_resource']; ?></span>
+							<?php else: ?>
+							<li class='<?php echo $capability['permission_id']; ?>'>
+								<input type='hidden' name='available-capability[]' value='<?php echo $capability['permission_id']; ?>'>
+								<img src='<?php echo $this->baseUrl(); ?>/usr/images/forward.png'>&nbsp;&nbsp;
+								<span><?php echo $capability['permission_resource']; ?></span>
+							<?php endif; ?>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</ol>
+				</div>
+				<div class='span-1'>&nbsp;</div>
+				<div class='span-10 last'>
+					<ol class='selectable selected'>
+						<?php if (!empty($this->selectedCapabilities)): ?>
+						<?php foreach($this->selectedCapabilities as $capability): ?>
+							<li class='<?php echo $capability['id']; ?>'>
+								<input type='hidden' name='selected-capability[]' value='<?php echo $capability['id']; ?>'>
+								<img src='<?php echo $this->baseUrl(); ?>/usr/images/back.png'>&nbsp;&nbsp;
+								<span><?php echo $capability['resource']; ?></span>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</ol>
+				</div>
+			</div>
+		</div>
+
+		<hr class='space'/>
+		<hr class='space'/>
+
+		<div class='permission-block'>
+			<h4 style='font-weight: bold;'>API Methods</h4>
+			<div class='small quiet append-bottom'>
+				Select specific API calls this role can use
+			</div>
+
+			<div class='span-5'>
+				Available API calls
+			</div>
+			<div class='span-5' style='text-align: right;'>
+				<span class='hypertext add-all'>add all &raquo;</span>
+			</div>
+			<div class='span-1'>&nbsp;</div>
+			<div class='span-5'>
+				Selected API calls
+			</div>
+			<div class='span-5 last' style='text-align: right;'>
+				<span class='hypertext clear-all'>clear all &laquo;</span>
+			</div>
+
+			<div class='permissions'>
+				<div class='span-10'>
+					<ol class='selectable available'>
+						<?php if (!empty($this->allMethods)): ?>
+						<?php foreach($this->allMethods as $method): ?>
+							<?php if ($this->inSelected($method['permission_resource'], $this->selectedMethods)): ?>
+							<li class='<?php echo $method['permission_id']; ?>'>
+								<input type='hidden' name='available-api[]' value='<?php echo $method['permission_id']; ?>'>
+								<img src='<?php echo $this->baseUrl(); ?>/usr/images/forward-selected.png'>&nbsp;&nbsp;
+								<span><?php echo $method['permission_resource']; ?></span>
+							<?php else: ?>
+							<li class='<?php echo $method['permission_id']; ?>'>
+								<input type='hidden' name='available-api[]' value='<?php echo $method['permission_id']; ?>'>
+								<img src='<?php echo $this->baseUrl(); ?>/usr/images/forward.png'>&nbsp;&nbsp;
+								<span><?php echo $method['permission_resource']; ?></span>
+							<?php endif; ?>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</ol>
+				</div>
+				<div class='span-1'>&nbsp;</div>
+				<div class='span-10 last'>
+					<ol class='selectable selected'>
+						<?php if (!empty($this->selectedMethods)): ?>
+						<?php foreach($this->selectedMethods as $method): ?>
+							<li class='<?php echo $method['id']; ?>'>
+								<input type='hidden' name='selected-api[]' value='<?php echo $method['id']; ?>'>
+								<img src='<?php echo $this->baseUrl(); ?>/usr/images/back.png'>&nbsp;&nbsp;
+								<span><?php echo $method['resource']; ?></span>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</ol>
+				</div>
+			</div>
+		</div>
+
+		<hr class='space'/>
+		<div class='success'>
+			Successfully saved the role. <a href='<?php echo $this->baseUrl(); ?>/admin/roles'>Return to roles</a>
+		</div>
+		<div class='error'>
+			The role was not successfully saved. <a href='<?php echo $this->baseUrl(); ?>/admin/roles'>Return to roles</a>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='span-20 last clearfix form-ops' style='text-align: center;'>
+			<input id='btn-save' type='button' value='Save'>
+			<a class='hypertext' style='padding-left: 20px;' href='<?php echo $this->baseUrl(); ?>/admin/roles'>cancel</a>
+		</div>
+	</form>
+</div>
+</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

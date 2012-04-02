@@ -1,0 +1,180 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='span-22 last'>
+	<div class='span-22 last' style='font-size: 1.5em;'>
+		<a href='<?php echo $this->baseUrl(); ?>/admin/account' class='hypertext'>Accounts</a> &raquo;
+		<a href='<?php echo $this->baseUrl(); ?>/account/modify/edit?id=<?php echo $this->accountId; ?>' class='hypertext'><?php echo $this->account->getUsername(); ?></a> &raquo;
+		Interface
+		<img class='progress' src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+	</div>
+</div>
+<hr class='space'/>
+<div id='interface' class='span-22 prepend-1 append-1 prepend-top append-bottom'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<form id='form-submit'>
+		<input type='hidden' name='accountId' value='<?php echo $this->accountId; ?>'>
+		<strong>Default page limits</strong>
+		<div class='small quiet span-24'>
+			These numbers refer to the maximum number
+			of items that you will see on the specific
+			page.
+		</div>
+		<div class='prepend-1 span-21 append-bottom'>
+			<div class='span-21 limitRow prepend-top'>
+				<div class='span-4'>Accounts</div>
+				<div class='span-8' style='padding-top: 3px;'>
+					<div class='span-8 limit'></div>
+				</div>
+				<div class='span-1'>&nbsp;</div>
+				<div class='span-8 last'>
+					<?php if (isset($this->account->settings->limitAccounts)): ?>
+					<input type='hidden' class='limitVal' name='limitAccounts' value='<?php echo $this->account->settings->limitAccounts; ?>'>
+					<span class='limitDisp quiet'><?php echo $this->account->settings->limitAccounts; ?></span>
+					<?php else: ?>
+					<input type='hidden' class='limitVal' name='limitAccounts' value='15'>
+					<span class='limitDisp quiet'>15</span>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<div class='span-21 limitRow prepend-top'>
+				<div class='span-4'>Mappings</div>
+				<div class='span-8' style='padding-top: 3px;'>
+					<div class='span-8 limit'></div>
+				</div>
+				<div class='span-1'>&nbsp;</div>
+				<div class='span-8 last'>
+					<?php if (isset($this->account->settings->limitMappings)): ?>
+					<input type='hidden' class='limitVal' name='limitMappings' value='<?php echo $this->account->settings->limitMappings; ?>'>
+					<span class='limitDisp quiet'><?php echo $this->account->settings->limitMappings; ?></span>
+					<?php else: ?>
+					<input type='hidden' class='limitVal' name='limitMappings' value='15'>
+					<span class='limitDisp quiet'>15</span>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<div class='span-21 limitRow prepend-top'>
+				<div class='span-4'>Roles</div>
+				<div class='span-8' style='padding-top: 3px;'>
+					<div class='span-8 limit'></div>
+				</div>
+				<div class='span-1'>&nbsp;</div>
+				<div class='span-8 last'>
+					<?php if (isset($this->account->settings->limitRoles)): ?>
+					<input type='hidden' class='limitVal' name='limitRoles' value='<?php echo $this->account->settings->limitRoles; ?>'>
+					<span class='limitDisp quiet'><?php echo $this->account->settings->limitRoles; ?></span>
+					<?php else: ?>
+					<input type='hidden' class='limitVal' name='limitRoles' value='15'>
+					<span class='limitDisp quiet'>15</span>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<div class='span-21 limitRow prepend-top'>
+				<div class='span-4'>Tags</div>
+				<div class='span-8' style='padding-top: 3px;'>
+					<div class='span-8 limit'></div>
+				</div>
+				<div class='span-1'>&nbsp;</div>
+				<div class='span-8 last'>
+					<?php if (isset($this->account->settings->limitTags)): ?>
+					<input type='hidden' class='limitVal' name='limitTags' value='<?php echo $this->account->settings->limitTags; ?>'>
+					<span class='limitDisp quiet'><?php echo $this->account->settings->limitTags; ?></span>
+					<?php else: ?>
+					<input type='hidden' class='limitVal' name='limitTags' value='15'>
+					<span class='limitDisp quiet'>15</span>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<div class='span-21 limitRow prepend-top'>
+				<div class='span-4'>Urls</div>
+				<div class='span-8' style='padding-top: 3px;'>
+					<div class='span-8 limit'></div>
+				</div>
+				<div class='span-1'>&nbsp;</div>
+				<div class='span-8 last'>
+					<?php if (isset($this->account->settings->limitUrls)): ?>
+					<input type='hidden' class='limitVal' name='limitUrls' value='<?php echo $this->account->settings->limitUrls; ?>'>
+					<span class='limitDisp quiet'><?php echo $this->account->settings->limitUrls; ?></span>
+					<?php else: ?>
+					<input type='hidden' class='limitVal' name='limitUrls' value='15'>
+					<span class='limitDisp quiet'>15</span>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+
+		<hr class='space'/>
+
+		<strong>Ask before navigating away to malware links</strong>
+		<div class='small quiet'>
+			Some links in savory will direct you to the
+			actual malicious site. You can be notified
+			that you are navigating away before you actually do
+		</div>
+		<div class='prepend-1 span-21 append-bottom'>
+			<table style='width: 100%; border: 0'>
+				<tr>
+					<td style='width: 50%;'>
+						<?php if ((@$this->account->settings->askNavigateAway == 1) || !isset($this->account->settings->askNavigateAway)): ?>
+						<input type='radio' name='askNavigateAway' value='1' checked='checked'>Yes, ask me before redirecting
+						<?php else: ?>
+						<input type='radio' name='askNavigateAway' value='1'>Yes, ask me before redirecting
+						<?php endif; ?>
+					</td>
+					<td style='width: 50%;'>
+						<?php if ((@$this->account->settings->askNavigateAway == 0) || !isset($this->account->settings->askNavigateAway)): ?>
+						<input type='radio' name='askNavigateAway' value='0' checked='checked'>No, just redirect me
+						<?php else: ?>
+						<input type='radio' name='askNavigateAway' value='0'>No, just redirect me
+						<?php endif; ?>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='span-21 append-bottom'>
+			<strong>Default module</strong>
+			<div class='small quiet'>
+				Choose which module you want to have the account
+				directed to upon login.
+			</div>
+			<div class='permission-block'>
+				<select name='defaultModule'>
+				<?php foreach($this->modules as $module): ?>
+					<?php if (isset($this->account->settings->defaultModule)): ?>
+						<?php if ($this->account->settings->defaultModule == $module): ?>
+						<option value='<?php echo $module; ?>' selected='selected'><?php echo $module; ?>
+						<?php else: ?>
+						<option value='<?php echo $module; ?>'><?php echo $module; ?>
+						<?php endif; ?>
+					<?php else: ?>
+						<?php if ($module == 'default'): ?>
+						<option value='<?php echo $module; ?>' selected='selected'><?php echo $module; ?>
+						<?php else: ?>
+						<option value='<?php echo $module; ?>'><?php echo $module; ?>
+						<?php endif; ?>
+					<?php endif; ?>
+				<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+
+		<div class='message'>
+			<div class='error content prepend-top append-bottom'></div>
+		</div>
+
+		<div class='span-20 last clearfix form-ops' style='text-align: center;'>
+			<input id='btn-save' type='button' value='Save'>
+			<a class='hypertext' style='padding-left: 20px;' href='<?php echo $this->baseUrl(); ?>/account/modify/edit?id=<?php echo $this->accountId; ?>'>cancel</a>
+		</div>
+	</form>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

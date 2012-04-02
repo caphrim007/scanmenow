@@ -1,0 +1,50 @@
+<?php if (empty($this->results)): ?>
+	<div class='prepend-top no-results-mesg'>
+		No roles were found
+	</div>
+<?php else: ?>
+<div class='selectable last policy-list list'>
+	<table>
+		<thead>
+			<tr>
+				<th class='check'><input type='checkbox'></th>
+				<th>Role</th>
+				<th colspan='2'>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+<?php foreach ($this->results as $key => $role): ?>
+	<tr class='row'>
+		<td class='check'>
+			<?php if ($role['immutable'] == 0): ?>
+			<input class='role-checkbox' type='checkbox' name='roleId' value='<?php echo $role['id']; ?>'>
+			<?php else: ?>
+			&nbsp;
+			<?php endif; ?>
+		</td>
+		<td style='width: 30%; border-bottom: 1px solid #cdcdcd;'>
+			<a class='hypertext' href='<?php echo $this->baseUrl() ;?>/admin/roles/edit?id=<?php echo $role['id']; ?>'><?php echo $role['name'] ; ?></a>
+		</td>
+		<td style='width: 40%; border-bottom: 1px solid #cdcdcd;'>
+			<?php if(strlen($role['description']) == 0): ?>
+			&nbsp;
+			<?php elseif(strlen($role['description']) > 200): ?>
+				<?php echo substr($role['description'], 0, 200).'...'; ?>
+			<?php else: ?>
+				<span class='quiet'><?php echo $role['description']; ?></span>
+			<?php endif; ?>
+		</td>
+		<td class='icons'>
+			<input type='hidden' name='id' value='<?php echo $role['id']; ?>'>
+			<?php if ($role['immutable'] == 0): ?>
+				<img class='trash' src='<?php echo $this->baseUrl(); ?>/usr/images/trash.gif' alt='Delete role' title='Delete role'>
+			<?php else: ?>
+				&nbsp;
+			<?php endif; ?>
+		</td>
+	</tr>
+<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>
+<?php endif; ?>

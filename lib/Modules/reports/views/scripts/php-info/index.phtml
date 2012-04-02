@@ -1,0 +1,15 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+<?php require _MODPATH.'/reports/views/scripts/header/index.phtml'; ?>
+
+<div class='span-22 last'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+
+	<div class='span-22'>
+		<?php echo phpinfo(); ?>
+	</div>
+</div>
+
+<?php require _MODPATH.'/reports/views/scripts/footer/index.phtml'; ?>
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

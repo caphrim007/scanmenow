@@ -1,0 +1,72 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+<div class='wrapper content'>
+<div class='span-10 admin-block colborder'>
+	<h3>Account management</h3>
+	<div>
+		<p>Manage users, groups and access to site features.</p>
+		<dl>
+			<dt>
+				<a href='<?php echo $this->baseUrl(); ?>/admin/account'>Accounts</a>
+			</dt>
+			<dd class='quiet'>List, add, and edit accounts.</dd>
+
+			<dt>
+				<a href='<?php echo $this->baseUrl(); ?>/admin/account-defaults'>Account defaults</a>
+			</dt>
+			<dd class='quiet'>Modify default account settings.</dd>
+
+			<dt>
+				<a href='<?php echo $this->baseUrl(); ?>/admin/authentication'>Authentication</a>
+			</dt>
+			<dd class='quiet'>Configure forms of authentication for accounts.</dd>
+
+			<dt>
+				<a href='<?php echo $this->baseUrl(); ?>/permissions'>Permissions</a>
+			</dt>
+			<dd class='quiet'>Modify permissions available.</dd>
+
+			<dt>
+				<a href='<?php echo $this->baseUrl(); ?>/admin/roles'>Roles</a>
+			</dt>
+			<dd class='quiet'>List, edit, or add account roles.</dd>
+		</dl>
+	</div>
+</div>
+
+<div class='span-11 admin-block last'>
+	<input type='hidden' name='dialog' value='siteConfiguration'>
+	<h3>Site configuration</h3>
+	<div>
+		<p>Adjust general configuration options. </p>
+		<dl>
+			<dt>
+				<a href='<?php echo $this->baseUrl(); ?>/admin/logging'>Logging</a>
+			</dt>
+			<dd class='quiet'>Settings for logging and alerts.</dd>
+
+			<dt>
+				<a href='<?php echo $this->baseUrl(); ?>/config/modify/edit'>Miscellaneous</a>
+			</dt>
+			<dd class='quiet'>Change remaining uncategorized settings</dd>
+		</dl>
+	</div>
+</div>
+
+<div class='span-10 admin-block colborder'>
+	<h3>Tools</h3>
+	<div>
+		<p>Various tools providing more functionality</p>
+		<dl>
+			<dt>
+				<a href='<?php echo $this->baseUrl(); ?>/metrx'>Metrx</a>
+			</dt>
+			<dd class='quiet'>Charts, tables, reports and other metrics</dd>
+		</dl>
+	</div>
+</div>
+</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

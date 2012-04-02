@@ -1,0 +1,287 @@
+<div id='datasource' class='span-22'>
+	<form class='form-submit'>
+		<div class='span-22 append-bottom'>
+			<strong>Miscellaneous</strong>
+			<div class='small quiet'>
+				Miscellaneous settings for savory datasources
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Screenshot directory
+					<div>
+						<?php if(isset($this->config->datasource->screenshot)): ?>
+						<input type='text' name='ds_screenshot' value='<?php echo $this->config->datasource->screenshot; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_screenshot' value='/var/www/html/savory/var/lib/screenshot/' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					XML-RPC cache file
+					<div>
+						<?php if(isset($this->config->datasource->cache->xmlrpc)): ?>
+						<input type='text' name='ds_cache_xmlrpc' value='<?php echo $this->config->datasource->cache->xmlrpc; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_cache_xmlrpc' value='/var/www/html/savory/var/cache/xmlrpc' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					Web proxy local database
+					<div>
+						<?php if(isset($this->config->datasource->proxy->local)): ?>
+						<input type='text' name='ds_proxy_local' value='<?php echo $this->config->datasource->proxy->local; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_proxy_local' value='/var/www/html/savory/var/lib/tsa/db' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					Default favicon
+					<div>
+						<?php if(isset($this->config->datasource->default->favicon)): ?>
+						<input type='text' name='ds_default_favicon' value='<?php echo $this->config->datasource->default->favicon; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_default_favicon' value='/var/www/html/savory/var/lib/favicon.ico' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					Magic file
+					<div>
+						<?php if(isset($this->config->datasource->magic)): ?>
+						<input type='text' name='ds_magic' value='<?php echo $this->config->datasource->magic; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_magic' value='/var/www/html/savory/var/lib/magic' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>Geo-IP</strong>
+			<div class='small quiet'>
+				Geo-IP settings for savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Source database URI
+					<div>
+						<?php if(isset($this->config->datasource->geoip->source)): ?>
+						<input type='text' name='ds_geoip_source' value='<?php echo $this->config->datasource->geoip->source; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_geoip_source' value='http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					Database location
+					<div>
+						<?php if(isset($this->config->datasource->geoip)): ?>
+						<input type='text' name='ds_geoip_path' value='<?php echo $this->config->datasource->geoip; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_geoip_path' value='/var/www/html/savory/var/lib/GeoLiteCity.dat' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>Team Cymru</strong>
+			<div class='small quiet'>
+				Team Cymru datasource settings for savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					ASN DNS lookup server
+					<div>
+						<?php if(isset($this->config->datasource->cymru->asn->origin)): ?>
+						<input type='text' name='ds_tc_asn' value='<?php echo $this->config->datasource->cymru->asn->origin; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_tc_asn' value='origin.asn.cymru.com' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					Malware hash registry DNS lookup server
+					<div>
+						<?php if(isset($this->config->datasource->cymru->mhr)): ?>
+						<input type='text' name='ds_tc_mhr' value='<?php echo $this->config->datasource->cymru->mhr; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_tc_mhr' value='malware.hash.cymru.com' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>Phishtank</strong>
+			<div class='small quiet'>
+				Phishtank datasource settings for savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Datasource URL
+					<div>
+						<?php if(isset($this->config->service->phishtank->url)): ?>
+						<input type='text' name='ds_pt_url' value='<?php echo $this->config->service->phishtank->url; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_pt_url' value='http://data.phishtank.com/data/%s/online-valid.json' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					Credentials
+					<div>
+						<?php if(isset($this->config->service->phishtank->credentials)): ?>
+						<input type='text' name='ds_pt_creds' value='<?php echo $this->config->service->phishtank->credentials; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_pt_creds' value='abcdef' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>MalwareURL</strong>
+			<div class='small quiet'>
+				MalwareURL datasource settings for savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Datasource URL
+					<div>
+						<?php if(isset($this->config->service->malwareurl->url)): ?>
+						<input type='text' name='ds_murl_url' value='<?php echo $this->config->service->malwareurl->url; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_murl_url' value='http://www.malwareurl.com/reg-export-urls.php?export=%s&key=%s' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>Pgl Yoyo</strong>
+			<div class='small quiet'>
+				Pgl Yoyo datasource settings for savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Datasource URL
+					<div>
+						<?php if(isset($this->config->service->pglyoyohosts->url)): ?>
+						<input type='text' name='ds_pgl_url' value='<?php echo $this->config->service->pglyoyohosts->url; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_pgl_url' value='http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&startdate[day]=%s&startdate[month]=%s&startdate[year]=%s&mimetype=plaintext' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>VirusTotal</strong>
+			<div class='small quiet'>
+				VirusTotal datasource settings for savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Hash URL
+					<div>
+						<?php if(isset($this->config->service->virustotalhash->url)): ?>
+						<input type='text' name='ds_vt_url' value='<?php echo $this->config->service->virustotalhash->url; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_vt_url' value='http://www.virustotal.com/vt/en/consultamd5' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					CSS Selector
+					<div>
+						<?php if(isset($this->config->service->virustotalhash->selector)): ?>
+						<input type='text' name='ds_vt_selector' value='<?php echo $this->config->service->virustotalhash->selector; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_vt_selector' value='#tablas' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>MalwareDomainList</strong>
+			<div class='small quiet'>
+				MalwareDomainList datasource settings for savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Datasource URL
+					<div>
+						<?php if(isset($this->config->service->malwaredomainlist->url)): ?>
+						<input type='text' name='ds_mwdl_url' value='<?php echo $this->config->service->malwaredomainlist->url; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_mwdl_url' value='http://www.malwaredomainlist.com/hostslist/mdl.xml' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>MalwarePatrol Conficker</strong>
+			<div class='small quiet'>
+				MalwarePatrol Conficker datasource settings for savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Datasource URL
+					<div>
+						<?php if(isset($this->config->service->mwpatrolconficker->url)): ?>
+						<input type='text' name='ds_mwpc_url' value='<?php echo $this->config->service->mwpatrolconficker->url; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ds_mwpc_url' value='http://lists.malwarepatrol.net/conficker/conficker_hosts127001.txt' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

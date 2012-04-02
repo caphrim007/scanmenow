@@ -1,0 +1,239 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<div class='wrapper content'>
+		<h1>You may now quickly scan your system for vulnerabilities</h1>
+		<p>
+			This process will only scan the computer from which you click the links below.
+			The scans can take up to 30 minutes (or greater) for a full scan (over 10,000 checks),
+			especially if you have a personal firewall or other filtering device enabled.
+		</p>
+		<p>
+			The scanner tries not to interfere with running services, however the possibility
+			exists that a full scan may cause system instability.
+		</p>
+
+		<?php if (!empty($this->results)): ?>
+		<h1>Have you been here before?</h1>
+		<p>
+			It looks like we've found some scan results that may be yours. If you have not yet saved these results, you may want to do
+			so before we remove them.
+		</p>
+<div class='selectable last policy-list list append-bottom'>
+	<table>
+		<thead>
+			<tr>
+				<th>View results</th>
+				<th>When the scan occurred</th>
+				<th>When the results will be removed</th>
+			</tr>
+		</thead>
+		<tbody>
+<?php foreach ($this->results as $key => $scan): ?>
+	<tr class='row'>
+		<td style='width: 20%; border-bottom: 1px solid #cdcdcd; text-align: center;'>
+		<?php if ($scan['status'] == 'P'): ?>
+				Results pending
+		<?php else: ?>
+			<div class="buttons">
+				<input type='hidden' name='scanId' value='<?php echo $scan['scan_uuid']; ?>'>
+				<p class="button">View</p>
+			</div>
+		<?php endif; ?>
+		</td>
+		<?php $date = new Zend_Date($scan['date_created'], Zend_Date::ISO_8601); ?>
+		<td style='width: 40%; border-bottom: 1px solid #cdcdcd;'>
+			<?php echo $date->toString('EEEE, MMMM d, h:mm a'); ?>
+		</td>
+		<td style='width: 40%; border-bottom: 1px solid #cdcdcd;'>
+			<?php
+				$date->addHour(24);
+			?>
+			
+			<?php echo $date->toString('EEEE, MMMM d, h:mm a'); ?>
+		</td>
+	</tr>
+<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>
+
+		<?php endif; ?>
+
+		<h1>Choose your scanner</h1>
+
+		<div class='wget'>
+			<p>
+				We've got ampersands in the URL and they're all escaped and ready for <code>wget</code>.
+			</p>
+		</div>
+
+		<div id='sans-wget' class='no-wget'>
+			<?php $i = 1; ?>
+			<?php foreach($this->config->scan as $key => $scan):?>
+			<?php if (($i % 2) == 0): ?>
+			<div class='scanner-block-right scanner-block'>
+			<?php else: ?>
+			<div class='scanner-block-left scanner-block'>
+			<?php endif; ?>
+				<input type='hidden' name='scanner' value='<?php echo $key; ?>'>
+				<?php if (in_array($key, $this->hasPending)): ?>
+				<input type='hidden' name='hasPending' value='yes'>
+				<?php else: ?>
+				<input type='hidden' name='hasPending' value='no'>
+				<?php endif; ?>
+				<div class='scanner-block-header'>
+					<table class='available'>
+						<tr>
+							<td class='header'><?php echo $scan->header; ?></td>
+							<td class='status'>&nbsp;</td>
+						</tr>
+					</table>
+					<table class='notavailable'>
+						<tr>
+							<td class='header'><?php echo $scan->header; ?></td>
+							<td class='status'>offline</td>
+						</tr>
+					</table>
+					<table class='checking default'>
+						<tr>
+							<td class='header'><?php echo $scan->header; ?></td>
+							<td class='status'>checking</td>
+						</tr>
+					</table>
+					<table class='scanning'>
+						<tr>
+							<td class='header'><?php echo $scan->header; ?></td>
+							<td class='status'>scanning</td>
+						</tr>
+					</table>
+				</div>
+				<div class='scanner-block-body'>
+					<div class='available'>
+						<?php foreach($scan->profile as $pKey => $profile): ?>
+						<button class='classy enabled' value='<?php echo $profile->id; ?>'><span><?php echo $profile->description; ?></span></button>
+						<?php endforeach; ?>
+					</div>
+					<div class='notavailable' style='text-align: center; font-size: 16px; color: #999;'>
+						This scanner is currently unavailable
+					</div>
+					<div class='checking default' style='text-align: center; font-size: 16px; color: #999;'>
+						Checking for available scanners
+					</div>
+					<div class='scanning' style='text-align: center; font-size: 16px; color: #999;'>
+						A scan is currently being run for your device
+					</div>
+				</div>
+			</div>
+			<?php $i = $i + 1; ?>
+			<?php endforeach; ?>
+		</div>
+
+		<div id='with-wget' class='wget'>
+			<?php $i = 1; ?>
+			<?php foreach($this->config->scan as $key => $scan):?>
+			<?php if (($i % 2) == 0): ?>
+			<div class='scanner-block-right scanner-block'>
+			<?php else: ?>
+			<div class='scanner-block-left scanner-block'>
+			<?php endif; ?>
+				<input type='hidden' name='scanner' value='<?php echo $key; ?>'>
+				<div class='scanner-block-header'>
+					<table class='available'>
+						<tr>
+							<td class='header'><?php echo $scan->header; ?></td>
+							<td class='status'>&nbsp;</td>
+						</tr>
+					</table>
+					<table class='notavailable'>
+						<tr>
+							<td class='header'><?php echo $scan->header; ?></td>
+							<td class='status'>offline</td>
+						</tr>
+					</table>
+					<table class='checking default'>
+						<tr>
+							<td class='header'><?php echo $scan->header; ?></td>
+							<td class='status'>checking</td>
+						</tr>
+					</table>
+					<table class='scanning'>
+						<tr>
+							<td class='header'><?php echo $scan->header; ?></td>
+							<td class='status'>scanning</td>
+						</tr>
+					</table>
+				</div>
+				<div class='scanner-block-body'>
+					<div class='available'>
+						<?php $j = 1; ?>
+						<?php foreach($scan->profile as $pKey => $profile): ?>
+						<?php if (($j % 2) == 0): ?>
+						<div class='scanner-block-type prepend-top'>
+						<?php else: ?>
+						<div class='scanner-block-type'>
+						<?php endif; ?>
+							<div class='heavy' style='float: left; width: 50%;'><?php echo $profile->description; ?></div>
+							<div style='float: left; clear: right; width: 50%; text-align: right;'><span class='hypertext selectCmd'>select</span></div>
+							<div>
+								<?php
+									$uri = Zend_Uri::factory('https');
+									$uri->setHost($_SERVER['HTTP_HOST']);
+									$uri->setPath($_SERVER['REQUEST_URI'] . 'scanning/scan/create');
+									$uri->setQuery(array(
+										'profile' => $profile->id,
+										'scanner' => $key
+									));
+								?>
+				
+								<textarea class='code'>wget -O response.txt '<?php echo $uri->getUri(); ?>'</textarea>
+							</div>
+						</div>
+						<?php $j = $j + 1; ?>
+						<?php endforeach; ?>
+					</div>
+					<div class='notavailable' style='text-align: center; font-size: 16px; color: #999;'>
+						This scanner is currently unavailable
+					</div>
+					<div class='checking default' style='text-align: center; font-size: 16px; color: #999;'>
+						Checking for available scanners
+					</div>
+					<div class='scanning' style='text-align: center; font-size: 16px; color: #999;'>
+						A scan is currently being run for your device
+					</div>
+				</div>
+			</div>
+			<?php $i = $i + 1; ?>
+			<?php endforeach; ?>
+		</div>
+
+		<div class='no-wget-links span-23'>
+			<h1>Prefer to use the web UI?</h1>
+			<p>
+				Certainly. <span id='get-btn-link' class='heavy hypertext'>Use the web UI</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+<div id='positionable' style='position: absolute; cursor: pointer; min-width: 57px; z-index: 7; background-color: #fff;'>
+	<div style='-webkit-box-shadow: 0 4px 10px #8b8b8b; -moz-box-shadow: 0 4px 10px #8b8b8b; box-shadow: 0 4px 10px #8b8b8b; padding: 5px; z-index: 7;'>
+		<div style='padding: 4px 2.5ex 4px 0; margin: 0'>
+			<input type='hidden' name='format' value='builtin_detailed_html.xsl'>
+			<div class='reportFormat'>Detailed report</div>
+		</div>
+		<div style='padding: 4px 2.5ex 4px 0; margin: 0'>
+			<input type='hidden' name='format' value='builtin_executive_html.xsl'>
+			<div class='reportFormat'>Executive report</div>
+		</div>
+		<div style='padding: 4px 2.5ex 4px 0; margin: 0'>
+			<input type='hidden' name='format' value='nessus'>
+			<div class='reportFormat'>Nessus export</div>
+		</div>
+	</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

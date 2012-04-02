@@ -1,0 +1,39 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+<div class='span-22 last'>
+	<div class='span-22' style='font-size: 1.5em;'>
+		<a href='<?php echo $this->baseUrl(); ?>/settings/modify/edit' class='hypertext'>Your account</a> &raquo;
+		Interface
+		<?php if ($this->config->misc->tim && $this->now->toString('MM-dd') == '08-05'): ?>
+		<img class='progress nyan' src='<?php echo $this->baseUrl(); ?>/usr/images/nyan.gif' alt="It's Tim's Birthday! That's awesome!" title="It's Tim's Birthday! That's awesome!">
+		<?php else: ?>
+		<img class='progress noNyan' src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+		<?php endif; ?>
+	</div>
+</div>
+<div id='interface' class='span-22 prepend-top append-bottom'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<form id='form-submit'>
+	<div id='mainTabs' class='span-22'>
+		<div id='tabs' class='span-22' style='margin-right: -1px !important;'>
+			<ul class='span-22'>
+				<li><a href='#tab-general'>General</a></li>
+			</ul>
+			<?php require _MODPATH.'/settings/views/scripts/interface/interface-general.phtml'; ?>
+		</div>
+
+		<div class='span-20 last clearfix form-ops' style='text-align: center;'>
+			<input id='btn-save' type='button' value='Save'>
+			<a class='hypertext' style='padding-left: 20px;' href='<?php echo $this->baseUrl(); ?>/settings/modify/edit'>cancel</a>
+		</div>
+	</div>
+	</form>
+</div>
+	</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

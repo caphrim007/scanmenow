@@ -1,0 +1,134 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<?php if ($this->id == '_new'): ?>
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+<div class='span-22 last'>
+	<div class='span-12' style='font-size: 1.5em;'>
+		<a href='<?php echo $this->baseUrl(); ?>/admin/account' class='hypertext'>Accounts</a> &raquo;
+		Create
+		<img class='progress' src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+	</div>
+</div>
+<hr class='space'/>
+<div class='span-22'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<form id='form-submit'>
+		<input type='hidden' name='id' value='<?php echo $this->id; ?>'>
+		<div class='span-22'>
+			<strong>Username</strong>
+			<div>
+				<input type='text' name='username'>
+			</div>
+		</div>
+
+		<?php if (in_array('DbTable', $this->types) || in_array('Array', $this->types)): ?>
+		<hr class='space'/>
+
+		<div class='span-22'>
+			<div class='span-22'>
+				<strong>Password</strong>
+				<div class='small quiet'>
+					The password will have no effect if you will be using authentication that
+					relies on an external service like LDAP or X.509.
+				</div>
+			</div>
+			<div class='span-22'>
+				<input type='text' name='password'>
+				&nbsp;&nbsp;&nbsp;
+				<span id='generate' class='hypertext'>generate</span>
+			</div>
+		</div>
+
+		<?php endif; ?>
+
+		<hr class='space'/>
+
+		<div class='message error'>
+			<span class='content'></span>
+			&nbsp;&nbsp;
+			<span class='hypertext close'>close</span>
+		</div>
+	
+		<div class='span-20 last form-ops clearfix' style='text-align: center;'>
+			<input id='btn-save' type='button' value='Save'>
+			<a class='hypertext' style='padding-left: 20px;' href='<?php echo $this->baseUrl(); ?>/admin/account'>cancel</a>
+		</div>
+	</form>
+</div>
+	</div>
+</div>
+<?php else: ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+		<form id='form-edit'>
+			<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+			<?php if ($this->account->isFirstBoot()): ?>
+			<input type='hidden' name='first-boot' value='1'>
+			<?php else: ?>
+			<input type='hidden' name='first-boot' value='0'>
+			<?php endif; ?>
+			<input type='hidden' name='id' value='<?php echo $this->id; ?>'>
+		</form>
+		<div class='span-22 last'>
+			<div class='span-12' style='font-size: 1.5em;'>
+				<?php if ($this->session->acl->isAllowed('Capability', 'edit_user')): ?>
+				<a href='<?php echo $this->baseUrl(); ?>/admin/account' class='hypertext'>Accounts</a> &raquo;
+				<?php echo $this->account->getUsername(); ?>
+				<?php else: ?>
+				Your Account
+				<?php endif; ?>
+			</div>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='settings-block span-22'>
+			<div class='header bigtext'>Account Information</div>
+
+			<div class='span-20 prepend-top append-1 prepend-1'>
+				<?php if (in_array('DbTable', $this->types) || in_array('Array', $this->types)): ?>
+				<div class='span-7'>
+					<a class='hypertext' href='<?php echo $this->baseUrl(); ?>/account/password?accountId=<?php echo $this->id; ?>'>Change password</a>
+				</div>
+				<?php endif; ?>
+				<div class='span-7'>
+					<a class='hypertext' href='<?php echo $this->baseUrl(); ?>/account/mappings?accountId=<?php echo $this->id; ?>'>Account mappings</a>
+				</div>
+				<div class='span-6 last'>
+					<a class='hypertext' href='<?php echo $this->baseUrl(); ?>/account/roles?accountId=<?php echo $this->id; ?>'>Roles</a>
+				</div>
+			</div>
+
+			<div class='span-20 prepend-top append-1 prepend-1 append-bottom'>
+				<strong>First boot</strong>
+				<div class='quiet'>
+					<div id='firstBootOn' class='firstBoot'>
+						The first-boot flag for this account is set. You can <span class='toggleFirstBoot hypertext'>unset</span> it
+					</div>
+					<div id='firstBootOff' class='firstBoot'>
+						The first-boot flag for this account is not set. You can <span class='toggleFirstBoot hypertext'>set</span> it
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='settings-block span-22'>
+			<div class='header bigtext'>Account Preferences</div>
+			<div class='span-22 prepend-top append-1 prepend-1 append-bottom'>
+				<div class='span-7'>
+					<a class='hypertext' href='<?php echo $this->baseUrl(); ?>/account/interface?accountId=<?php echo $this->id; ?>'>User interface</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php endif; ?>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

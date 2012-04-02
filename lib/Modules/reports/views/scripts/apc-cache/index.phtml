@@ -1,0 +1,166 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+<?php require _MODPATH.'/reports/views/scripts/header/index.phtml'; ?>
+
+<?php if ($this->apcInstalled === false): ?>
+<div class='span-22 last'>
+	<div class='span-22' style='text-align: center;'>
+		APC does not appear to be installed
+	</div>
+</div>
+<?php else: ?>
+<div class='span-22 last'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+
+	<div class='span-22'>
+		<b>General Cache Information</b>
+	</div>
+	<div class='span-22 info append-bottom'>
+		<table cellspacing='0'>
+			<tbody>
+				<tr class=tr-0>
+					<td class=td-0>APC Version</td>
+					<td><?php echo $this->apcVersion; ?></td>
+				</tr>
+				<tr class=tr-1>
+					<td class=td-0>PHP Version</td>
+					<td><?php echo $this->phpVersion; ?></td>
+				</tr>
+
+				<?php if(!empty($this->serverName)): ?>
+				<tr class=tr-0>
+					<td class=td-0>APC Host</td>
+					<td><?php echo $this->serverName; ?></td>
+				</tr>
+				<?php endif; ?>
+
+				<?php if(!empty($this->serverSoftware)): ?>
+				<tr class=tr-1>
+					<td class=td-0>Server Software</td>
+					<td><?php echo $this->serverSoftware; ?></td>
+				</tr>
+				<?php endif; ?>
+
+				<tr class=tr-0>
+					<td class=td-0>Start Time</td>
+					<td><?php echo $this->startTime; ?></td>
+				</tr>
+
+				<tr class=tr-1>
+					<td class=td-0>Uptime</td>
+					<td><?php echo $this->uptime; ?></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class='span-22 prepend-top'>
+		<b>File Cache Information</b>
+	</div>
+	<div class='span-22 info append-bottom'>
+		<table cellspacing='0'>
+			<tbody>
+				<tr class=tr-0>
+					<td class=td-0>Cached Files</td>
+					<td><?php echo $this->cache['numberFiles']; ?></td>
+				</tr>
+				<tr class=tr-1>
+					<td class=td-0>Hits</td>
+					<td><?php echo number_format($this->hitInt); ?></td>
+				</tr>
+				<tr class=tr-0>
+					<td class=td-0>Misses</td>
+					<td><?php echo number_format($this->missInt); ?></td>
+				</tr>
+				<tr class=tr-1>
+					<td class=td-0>Request Rate (hits, misses)</td>
+					<td><?php echo $this->cache['requestRate']; ?> cache requests/second</td>
+				</tr>
+				<tr class=tr-0>
+					<td class=td-0>Hit Rate</td>
+					<td><?php echo $this->cache['hitRate']; ?> cache requests/second</td>
+				</tr>
+				<tr class=tr-1>
+					<td class=td-0>Miss Rate</td>
+					<td><?php echo $this->cache['missRate']; ?> cache requests/second</td>
+				</tr>
+				<tr class=tr-0>
+					<td class=td-0>Insert Rate</td>
+					<td><?php echo $this->cache['insertRate']; ?> cache requests/second</td>
+				</tr>
+				<tr class=tr-1>
+					<td class=td-0>Cache full count</td>
+					<td><?php echo $this->cache['cacheFullCount']; ?></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class='span-22 prepend-top'>
+		<b>Host Status Diagrams</b>
+	</div>
+	<div class='span-22 graph'>
+		<table cellspacing=0>
+			<tbody>
+				<tr>
+					<td class=td-0><?php echo $this->memNote; ?></td>
+					<td class=td-1>Hits &amp; Misses</td>
+				</tr>
+				<tr>
+					<td class=td-0>
+						<img src='<?php echo $this->baseUrl(); ?>/reports/apc-cache/memory-usage-chart?IMG=1&<?php echo time(); ?>'>
+					</td>
+					<td class=td-1>
+						<img src='<?php echo $this->baseUrl(); ?>/reports/apc-cache/hits-and-misses-chart?IMG=2&<?php echo time(); ?>'>
+					</td>
+				</tr>
+				<tr>
+					<td class=td-0>
+						<span class="green box">&nbsp;</span>
+						Free: <?php echo $this->memFreeInt; ?> (<?php echo $this->memFreePercent; ?>%)
+					</td>
+					<td class=td-1>
+						<span class="green box">&nbsp;</span>
+						Hits: <?php echo number_format($this->hitInt); ?> (<?php echo $this->hitPercent; ?>%)
+					</td>
+				</tr>
+				<tr>
+					<td class=td-0>
+						<span class="red box">&nbsp;</span>
+						Used: <?php echo $this->memUsedInt; ?> (<?php echo $this->memUsedPercent; ?>%)
+					</td>
+					<td class=td-1>
+						<span class="red box">&nbsp;</span>
+						Misses: <?php echo number_format($this->missInt); ?> (<?php echo $this->missPercent; ?>%)
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class='span-22 prepend-top'>
+		<b>Detailed Memory Usage and Fragmentation</b>
+	</div>
+	<div class='span-22 graph'>
+		<table cellspacing=0>
+			<tbody>
+				<tr>
+					<td class=td-0 colspan=2>
+						<img src='<?php echo $this->baseUrl(); ?>/reports/apc-cache/memory-fragmentation-chart?IMG=3&<?php echo time(); ?>'>
+					</td>
+				</tr>
+				<tr>
+					<td class='td-0'>
+						Fragmentation: <?php echo $this->fragmentation; ?>%
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<?php endif; ?>
+
+
+<?php require _MODPATH.'/reports/views/scripts/footer/index.phtml'; ?>
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

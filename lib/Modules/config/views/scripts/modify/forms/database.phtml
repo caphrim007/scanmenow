@@ -1,0 +1,75 @@
+<div id='database' class='span-22'>
+	<form class='form-submit'>
+		<div class='span-22 append-bottom'>
+			<strong>savory database</strong>
+			<div class='small quiet'>
+				Connection settings for the savory database
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					<div class='span-9'>
+						Database host
+						<div>
+							<?php if(isset($this->config->database->default->params->host)): ?>
+							<input type='text' name='nq_host' value='<?php echo $this->config->database->default->params->host; ?>' class='span-9'>
+							<?php else: ?>
+							<input type='text' name='nq_host' value='localhost' class='span-9'>
+							<?php endif; ?>
+						</div>
+					</div>
+
+					<div class='span-2'>&nbsp;</div>
+
+					<div class='span-9 last'>
+						Database port
+						<div>
+							<?php if(isset($this->config->database->default->params->port)): ?>
+							<input type='text' name='nq_port' value='<?php echo $this->config->database->default->params->port; ?>' class='span-9'>
+							<?php else: ?>
+							<input type='text' name='nq_port' value='5432' class='span-9'>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					Database name
+					<div>
+						<?php if(isset($this->config->database->default->params->dbname)): ?>
+						<input type='text' name='nq_dbname' value='<?php echo $this->config->database->default->params->dbname; ?>' class='span-9'>
+						<?php else: ?>
+						<input type='text' name='nq_dbname' value='savory' class='span-9'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					<div class='span-9'>
+						Username
+						<div>
+							<?php if(isset($this->config->database->default->params->username)): ?>
+							<input type='text' name='nq_username' value='<?php echo $this->config->database->default->params->username; ?>' class='span-9'>
+							<?php else: ?>
+							<input type='text' name='nq_username' value='savory' class='span-9'>
+							<?php endif; ?>
+						</div>
+					</div>
+
+					<div class='span-2'>&nbsp;</div>
+
+					<div class='span-9 last'>
+						Password
+						<div>
+							<?php if(isset($this->config->database->default->params->password)): ?>
+							<input type='text' name='nq_password' value='<?php echo $this->config->database->default->params->password; ?>' class='span-9'>
+							<?php else: ?>
+							<input type='text' name='nq_password' value='password' class='span-9'>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

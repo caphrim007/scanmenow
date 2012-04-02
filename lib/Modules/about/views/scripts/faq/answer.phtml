@@ -1,0 +1,35 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+		<?php if ($this->question == 1): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/what-is-scan-me-now.phtml'; ?>
+		<?php elseif ($this->question == 2): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/how-long-will-scan-take.phtml'; ?>
+		<?php elseif ($this->question == 3): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/can-scan-through-firewall.phtml'; ?>
+		<?php elseif ($this->question == 4): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/what-happens-if-i-stop-or-refresh.phtml'; ?>
+		<?php elseif ($this->question == 5): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/can-i-stop-the-scan.phtml'; ?>
+		<?php elseif ($this->question == 6): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/are-the-results-saved.phtml'; ?>
+		<?php elseif ($this->question == 7): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/input-additional-machines.phtml'; ?>
+		<?php elseif ($this->question == 8): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/can-i-scan-through-vpn.phtml'; ?>
+		<?php elseif ($this->question == 9): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/what-browsers-are-supported.phtml'; ?>
+		<?php elseif ($this->question == 10): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/why-complete-portion.phtml'; ?>
+		<?php elseif ($this->question == 11): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/what-alerts-to-be-concerned-about.phtml'; ?>
+		<?php elseif ($this->question == 12): ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/waited-long-time-no-results.phtml'; ?>
+		<?php else: ?>
+			<?php require _MODPATH.'/about/views/scripts/faq/answers/not-found.phtml'; ?>
+		<?php endif; ?>
+	</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

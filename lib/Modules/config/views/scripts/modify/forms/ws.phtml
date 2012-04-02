@@ -1,0 +1,194 @@
+<div id='ws' class='span-22'>
+	<form class='form-submit'>
+		<div class='span-22 append-bottom'>
+			<strong>Web service URIs : savory</strong>
+			<div class='small quiet'>
+				Used by savory for client services communicating
+				with the backend server via the XML-RPC API
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					URI to web service offered by savory
+					<div>
+						<?php if (isset($this->config->ws->api->savory->uri)): ?>
+						<input type='text' name='nq_api_uri' value='<?php echo $this->config->ws->api->savory->uri; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='nq_api_uri' value='http://localhost/savory/api/v1/xmlrpc' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					<div class='span-9'>
+						Username
+						<div>
+							<?php if (isset($this->config->ws->api->savory->api->username)): ?>
+							<input type='text' name='nq_api_username' value='<?php echo $this->config->ws->api->savory->api->username; ?>' class='span-9'>
+							<?php else: ?>
+							<input type='text' name='nq_api_username' value='_api' class='span-9'>
+							<?php endif; ?>
+						</div>
+					</div>
+
+					<div class='span-2'>&nbsp;</div>
+
+					<div class='span-9 last'>
+						Password
+						<div>
+							<?php if (isset($this->config->ws->api->savory->api->password)): ?>
+							<input type='text' name='nq_api_password' value='<?php echo $this->config->ws->api->savory->api->password; ?>' class='span-9'>
+							<?php else: ?>
+							<input type='text' name='nq_api_password' value='password' class='span-9'>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>Web service URIs : Splunk</strong>
+			<div class='small quiet'>
+				Used by savory for client services communicating
+				with Splunk via the REST API
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					URI to web service offered by splunk
+					<div>
+						<?php if (isset($this->config->ws->api->splunk->uri)): ?>
+						<input type='text' name='ws_splunk_uri' value='<?php echo $this->config->ws->api->splunk->uri; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ws_splunk_uri' value='https://localhost.localdomain:8089' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					<div class='span-9'>
+						Username
+						<div>
+							<?php if (isset($this->config->ws->api->splunk->username)): ?>
+							<input type='text' name='ws_splunk_username' value='<?php echo $this->config->ws->api->splunk->username; ?>' class='span-9'>
+							<?php else: ?>
+							<input type='text' name='ws_splunk_username' value='splunk' class='span-9'>
+							<?php endif; ?>
+						</div>
+					</div>
+
+					<div class='span-2'>&nbsp;</div>
+
+					<div class='span-9 last'>
+						Password
+						<div>
+							<?php if (isset($this->config->ws->api->splunk->password)): ?>
+							<input type='text' name='ws_splunk_password' value='<?php echo $this->config->ws->api->splunk->password; ?>' class='span-9'>
+							<?php else: ?>
+							<input type='text' name='ws_splunk_password' value='password' class='span-9'>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>Web service URIs : Infoblox</strong>
+			<div class='small quiet'>
+				Used by savory for client services communicating
+				with Infoblox via the SOAP API
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					URL to SOAP web service
+					<div>
+						<?php if (isset($this->config->ws->api->blackhole->location)): ?>
+						<input type='text' name='ws_bh_location' value='<?php echo $this->config->ws->api->blackhole->location; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ws_bh_location' value='http://dnsapp-dev.fnal.gov/cgi-bin/fnetreg/cstdnsadm.pl' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					Target namespace for the SOAP service
+					<div>
+						<?php if (isset($this->config->ws->api->blackhole->uri)): ?>
+						<input type='text' name='ws_bh_uri' value='<?php echo $this->config->ws->api->blackhole->uri; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ws_bh_uri' value='http://dnsapp-dev.fnal.gov/cstdnsadm' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>Web service URIs : VirusTotal</strong>
+			<div class='small quiet'>
+				Used by savory for client services communicating
+				with VirusTotal via the API
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					URL to web service
+					<div>
+						<?php if (isset($this->config->ws->api->virustotal->uri)): ?>
+						<input type='text' name='ws_vt_uri' value='<?php echo $this->config->ws->api->virustotal->uri; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ws_vt_uri' value='https://www.virustotal.com/api/' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20'>
+					API key to access web service
+					<div>
+						<?php if (isset($this->config->ws->api->virustotal->key)): ?>
+						<input type='text' name='ws_vt_key' value='<?php echo $this->config->ws->api->virustotal->key; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='ws_vt_key' value='' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<?php if ($this->session->acl->isAllowed('Capability', 'edit_ws_cstapi')): ?>
+
+		<hr>
+
+		<div class='span-22 append-bottom'>
+			<strong>Web service URIs : CSTAPI</strong>
+			<div class='small quiet'>
+				URI used by savory for services communicating with
+				the CSTAPI for account related functionality.
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					URI to web service offered by CSTAPI
+					<div>
+						<?php if (isset($this->config->ws->api->cstapi->uri)): ?>
+						<input type='text' name='cstapi_uri' value='<?php echo $this->config->ws->api->cstapi->uri; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='cstapi_uri' value='https://cstweb.fnal.gov/api/xmlrpc/index.php' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<?php endif; ?>
+	</form>
+</div>

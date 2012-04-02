@@ -1,0 +1,60 @@
+<div id='tab-general' class='span-21' style='min-height: 200px;'>
+	<strong>Default page limits</strong>
+	<div class='small quiet span-24'>
+		These numbers refer to the maximum number
+		of items that you will see on the specific
+		page.
+	</div>
+	<div class='prepend-1 span-21 append-bottom'>
+		<div class='span-21 limitRow prepend-top'>
+			<div class='span-4'>Accounts</div>
+			<div class='span-8' style='padding-top: 3px;'>
+				<div class='span-8 limit'></div>
+			</div>
+			<div class='span-1'>&nbsp;</div>
+			<div class='span-8 last'>
+				<?php if (isset($this->session->settings->limitAccounts)): ?>
+				<input type='hidden' class='limitVal' name='limitAccounts' value='<?php echo $this->session->settings->limitAccounts; ?>'>
+				<span class='limitDisp quiet'><?php echo $this->session->settings->limitAccounts; ?></span>
+				<?php else: ?>
+				<input type='hidden' class='limitVal' name='limitAccounts' value='15'>
+				<span class='limitDisp quiet'>15</span>
+				<?php endif; ?>
+			</div>
+		</div>
+
+		<div class='span-21 limitRow prepend-top'>
+			<div class='span-4'>Mappings</div>
+			<div class='span-8' style='padding-top: 3px;'>
+				<div class='span-8 limit'></div>
+			</div>
+			<div class='span-1'>&nbsp;</div>
+			<div class='span-8 last'>
+				<?php if (isset($this->session->settings->limitMappings)): ?>
+				<input type='hidden' class='limitVal' name='limitMappings' value='<?php echo $this->session->settings->limitMappings; ?>'>
+				<span class='limitDisp quiet'><?php echo $this->session->settings->limitMappings; ?></span>
+				<?php else: ?>
+				<input type='hidden' class='limitVal' name='limitMappings' value='15'>
+				<span class='limitDisp quiet'>15</span>
+				<?php endif; ?>
+			</div>
+		</div>
+
+		<div class='span-21 limitRow prepend-top'>
+			<div class='span-4'>Roles</div>
+			<div class='span-8' style='padding-top: 3px;'>
+				<div class='span-8 limit'></div>
+			</div>
+			<div class='span-1'>&nbsp;</div>
+			<div class='span-8 last'>
+				<?php if (isset($this->session->settings->limitRoles)): ?>
+				<input type='hidden' class='limitVal' name='limitRoles' value='<?php echo $this->session->settings->limitRoles; ?>'>
+				<span class='limitDisp quiet'><?php echo $this->session->settings->limitRoles; ?></span>
+				<?php else: ?>
+				<input type='hidden' class='limitVal' name='limitRoles' value='15'>
+				<span class='limitDisp quiet'>15</span>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+</div>

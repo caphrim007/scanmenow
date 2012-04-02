@@ -1,0 +1,6 @@
+/var/www/html/scanmenow/var/log/messages {
+	daily
+	rotate 7
+	copytruncate
+	missingok
+}

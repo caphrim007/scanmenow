@@ -1,0 +1,63 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+<div class='wrapper content'>
+<div class='span-11'>
+	<form id='form-edit'>
+		<input type='hidden' name='certAuth' value='<?php echo $this->certAuth; ?>'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<form id='form-submit'>
+		<strong>Username</strong>
+		<div>
+			<input type="text" name="username"/>
+		</div>
+
+		<hr class='space'/>
+
+		<strong>Password</strong>
+		<div>
+			<input type="password" name="password"/>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='message error'>
+			<span class='content'></span>
+			&nbsp;&nbsp;
+			<span class='hypertext close'>close</span>
+		</div>
+
+		<div>
+			<input id='btn-save' type='button' value='Sign in'>
+		</div>
+	</form>
+</div>
+<?php if ($this->certAuth === true): ?>
+<div id='certAuthBlock' class='span-11 last'>
+	<div>
+		<div id='certAuthBlockStatus' style='text-align: center;'>
+			<div class='small quiet'>
+				Please wait a moment while we check to see if you have a valid certificate.
+			</div>
+			<hr class='space'/>
+			<img src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+		</div>
+
+		<div class='message prepend-top'>
+			<div class='error'>
+				<span class='content'></span>
+				&nbsp;Would you like to <a class='hypertext' href='<?php echo $this->baseUrl(); ?>'>retry</a>?
+			</div>
+			<div class='small quiet'>
+				Otherwise, consider logging in without a certificate using the form to the left. 
+				<span class='hypertext close'>close</span>
+			</div>
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

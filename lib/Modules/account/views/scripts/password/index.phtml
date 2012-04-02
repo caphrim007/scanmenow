@@ -1,0 +1,70 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='span-22 last'>
+	<div class='span-12' style='font-size: 1.5em;'>
+		<a href='<?php echo $this->baseUrl(); ?>/admin/account' class='hypertext'>Accounts</a> &raquo;
+		<a href='<?php echo $this->baseUrl(); ?>/account/modify/edit?id=<?php echo $this->accountId; ?>' class='hypertext'><?php echo $this->account->getUsername(); ?></a> &raquo;
+		Password
+		<img class='progress' src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+	</div>
+</div>
+<hr class='space'/>
+<?php if (in_array('DbTable', $this->types) || in_array('Array', $this->types)): ?>
+<div class='span-15 colborder'>
+<?php else: ?>
+<div class='span-22'>
+<?php endif; ?>
+	<?php if (in_array('DbTable', $this->types) || in_array('Array', $this->types)): ?>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<form id='form-submit'>
+		<input type='hidden' name='accountId' value='<?php echo $this->accountId; ?>'>
+		<h4>New password</h4>
+		<div>
+			<input type='password' name='newPassword' value=''>
+		</div>
+
+		<hr class='space'/>
+
+		<h4>Repeat new password</h4>
+		<div>
+			<input type='password' name='repeatPassword' value=''>
+		</div>
+
+		<hr class='space'/>
+		<div class='message error append-bottom'>
+			<span class='content'></span>
+			&nbsp;&nbsp;
+			<span class='hypertext close'>close</span>
+		</div>
+
+		<div class='span-20 last clearfix form-ops' style='text-align: center;'>
+			<input id='btn-save' type='button' value='Save'>
+			<a class='hypertext' style='padding-left: 20px;' href='<?php echo $this->baseUrl(); ?>/settings/modify/edit?id=<?php echo $this->id; ?>'>cancel</a>
+		</div>
+	</form>
+	<?php else: ?>
+	<div class='notice'>
+		The authentication types that are available do not support changing passwords.
+	</div>
+	<?php endif; ?>
+</div>
+<?php if (in_array('DbTable', $this->types) || in_array('Array', $this->types)): ?>
+<div class='span-6 last' style='text-align: justify;'>
+	<p>
+	You can change the password for the user using the associated form
+	</p>
+	<p>
+	When changing the password, this will change it in all
+	places where the account is defined such as databases
+	or text files.
+	</p>
+	<p>
+	Note that you cannot change passwords that are used via
+	LDAP or Certificates
+	</p>
+</div>
+<?php endif; ?>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

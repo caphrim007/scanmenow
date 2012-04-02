@@ -1,0 +1,30 @@
+/**
+* Taken directly from the Nessus Executive Summary report
+*/
+
+/* addresses css to format legend which are otherwise generated in jqplot js */
+        
+                table.jqplot-table-legend {
+                        margin-left:-1em;
+                        left:0;
+                        color:#e2801c;
+                        background-color:#FFF;
+                        }
+                        
+                        tr.jqplot-table-legend:first-child td {
+                                color:#c51010;
+                                }
+        
+                        tr.jqplot-table-legend:last-child td {
+                                color:  #527990;
+                                }
+        
+                div#chart canvas.jqplot-series-canvas {
+                       background-color:#FFF;
+                        }
+                                
+                .jqplot-pieRenderer-highlight-canvas {
+                        display:none;
+                        }
+                        
+                #dashboardTitle span p {*margin-top:.9em;}

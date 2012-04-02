@@ -1,0 +1,54 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+<div class='span-22 last prepend-top'>
+	<div class='span-9 last prepend-top'>
+		<?php if ($this->today->toString('e') == '4'): // Shows up on Thursday ?>
+		<img src='<?php echo $this->baseUrl(); ?>/usr/images/image002.png' style='width: 310px; height: 277px;' alt='Yum!' title='Yum!'>
+		<?php elseif ($this->today->toString('e') == '5'): // Shows up on Friday ?>
+		<img src='<?php echo $this->baseUrl(); ?>/usr/images/awesome.png' style='width: 310px; height: 277px;' alt='Awesomeness' title='Awesomeness'>
+		<?php else: ?>
+		<img src='<?php echo $this->baseUrl(); ?>/usr/images/logo.png' style='width: 310px; height: 277px;' alt='Scan it!' title='Scan it!'>
+		<?php endif; ?>
+	</div>
+	<div class='span-13 last prepend-top'>
+		<div class='span-13' style='font-size: 1.5em;'>
+			Hi, you're using awesome software!
+		</div>
+		<div class='span-13 prepend-top'>
+			<p>
+			This is version <?php echo $this->config->misc->version; ?> of <?php echo _APPLICATION; ?>.
+			</p>
+			<p>
+			This software was developed to allow you to quickly and easily determine if your
+			computer or other network device is vulnerable to any current software bugs or
+			misconfigurations that we may be aware of.
+			</p>
+			<p>
+			It's accessible from a number of different tools, and the results you receive are
+			available in a number of different formats so as to allow you to use them in your
+			own tools.
+			</p>
+			<p>
+			I hope you enjoy <?php echo _APPLICATION; ?>.
+			</p>
+		</div>
+		<div class='span-13' style='font-size: 1.5em;'>
+			Useful links
+		</div>
+		<div class='span-12 prepend-1 prepend-top'>
+			Here are some links that you might find helpful while
+			using the software.
+			<ul class='prepend-top'>
+				<li><a class='hypertext' target='_blank' href='<?php echo $this->config->links->home; ?>'><?php echo _APPLICATION; ?> homepage</a>
+				<li><a class='hypertext' target='_blank' href='<?php echo $this->config->links->tracker; ?>'>Issue tracker</a>
+				<li><a class='hypertext' target='_blank' href='<?php echo $this->config->links->wiki; ?>'>wiki</a>
+			</ul>
+		</div>
+	</div>
+</div>
+	</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

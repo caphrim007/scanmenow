@@ -1,0 +1,39 @@
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+
+<div id='title' class='span-23' style='line-height: 35px; height: 35px; border-bottom: 1px solid #eee;'>
+	<div class='span-5'>
+		<div style='font-size: 1.6em;'>
+			Accounts
+			<img class='progress' src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+		</div>
+	</div>
+
+	<div class='span-18 last menu' style='text-align: right;'>
+		<div class='pluginLinks'>
+			<ul>
+				<li><a class='hypertext' href='<?php echo $this->baseUrl(); ?>/account/modify/edit?id=_new'>Create</a>
+				<li><span id='searchLink' class='hypertext'>Search</span>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id='searchMenu' class='span-6 last' style='background-color: #fff; border: 1px solid #ccc; padding: 10px; -moz-border-radius: 4px; position: absolute; z-index: 1000;'>
+	<form id='form-accounts'>
+	<div class='span-6 append-bottom'>
+		<div class='span-6' style='color: #555;'>
+			<strong>Account name contains</strong>
+		</div>
+		<div class='span-6'>
+			<input type='text' name='username' style='width: 100%;'>
+		</div>
+	</div>
+
+	<hr class='quiet'/>
+
+	<div class='span-6' style='text-align: right;'>
+		<input type='button' value='Search'>
+	</div>
+	</form>
+</div>

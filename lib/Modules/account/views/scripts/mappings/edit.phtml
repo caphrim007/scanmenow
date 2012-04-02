@@ -1,0 +1,47 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='span-22 last'>
+	<div class='span-16' style='font-size: 1.5em;'>
+		<a href='<?php echo $this->baseUrl(); ?>/admin/account' class='hypertext'>Accounts</a> &raquo;
+		<a href='<?php echo $this->baseUrl(); ?>/account/modify/edit?id=<?php echo $this->account->getId(); ?>' class='hypertext'><?php echo $this->account->getUsername(); ?></a> &raquo;
+		<a href='<?php echo $this->baseUrl(); ?>/account/mappings?accountId=<?php echo $this->account->getId(); ?>' class='hypertext'>Mappings</a> &raquo;
+		Create
+	</div>
+</div>
+<hr class='space'/>
+<div class='span-22'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+		<input type='hidden' name='accountId' value='<?php echo $this->account->getId(); ?>'>
+	</form>
+	<form id='form-submit'>
+		<div class='block'>
+			<input type='hidden' name='accountId' value='<?php echo $this->account->getId(); ?>'>
+
+			<strong>Map name</strong>
+			<div>
+				<input type='text' name='map-name' style='width: 100%;'>
+			</div>
+			<div class='quiet small initial-message'>
+				<p>
+				The mapping name needs to be defined exactly as it would appear
+				in the authentication adapter that normally handles it.
+				Some examples are shown below
+				</p>
+
+				<div style='font-weight: bold;'>LDAP</div>
+				<div class='prepend-1'>john.doe@organization.org</div>
+				<div style='font-weight: bold;'>X.509</div>
+				<div class='prepend-1'>/DC=org/DC=Organization/O=Dev/OU=People/CN=John Doe/CN=john.doe</div>
+			</div>
+		</div>
+
+		<div class='span-22 last' style='text-align: right;'>
+			<img class='progress' src='<?php echo $this->baseUrl(); ?>/usr/images/spinner.gif'>
+			<input id='btn-save' type='button' value='Save' style='margin-left: 20px;'>
+			<a class='hypertext cancel' style='padding-left: 20px;' href='<?php echo $this->baseUrl(); ?>/account/mappings?accountId=<?php echo $this->account->getId(); ?>'>cancel</a>
+		</div>
+	</form>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

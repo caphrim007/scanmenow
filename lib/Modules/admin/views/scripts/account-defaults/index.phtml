@@ -1,0 +1,105 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+<div class='span-24 last'>
+	<div class='span-22' style='font-size: 1.5em;'>
+		Account Defaults
+	</div>
+</div>
+<hr class='space'/>
+<div class='span-24'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+	<form id='form-submit'>
+		<div class='span-24 append-bottom'>
+			<strong>Default assigned roles</strong>
+			<div class='small quiet'>
+				Choose which roles, if any, you would like to have
+				assigned to new accounts when they are first created
+			</div>
+			<div class='permission-block'>
+				<div class='span-4'>
+					Available roles
+				</div>
+				<div class='span-7' style='text-align: right;'>
+					<span class='hypertext add-all'>add all &raquo;</span>
+				</div>
+				<div class='span-1'>&nbsp;</div>
+				<div class='span-4'>
+					Selected roles
+				</div>
+				<div class='span-7 last' style='text-align: right;'>
+					<span class='hypertext clear-all'>clear all &laquo;</span>
+				</div>
+				<div class='roles'>
+					<div class='span-11'>
+						<ol class='selectable available'>
+							<?php if (!empty($this->allRoles)): ?>
+							<?php foreach($this->allRoles as $role): ?>
+								<?php if (array_key_exists($role['id'], $this->selectedRoles)): ?>
+								<li class='<?php echo $role['id']; ?>'>
+									<input type='hidden' name='available-role[]' value='<?php echo $role['id']; ?>'>
+									<img src='<?php echo $this->baseUrl(); ?>/usr/images/forward-selected.png'>&nbsp;&nbsp;
+									<span><?php echo $role['name']; ?></span>
+								<?php else: ?>
+								<li class='<?php echo $role['id']; ?>'>
+									<input type='hidden' name='available-role[]' value='<?php echo $role['id']; ?>'>
+									<img src='<?php echo $this->baseUrl(); ?>/usr/images/forward.png'>&nbsp;&nbsp;
+									<span><?php echo $role['name']; ?></span>
+								<?php endif; ?>
+							<?php endforeach; ?>
+							<?php endif; ?>
+						</ol>
+					</div>
+					<div class='span-1'>&nbsp;</div>
+					<div class='span-11 last'>
+						<ol class='selectable selected'>
+							<?php if (!empty($this->selectedRoles)): ?>
+							<?php foreach($this->selectedRoles as $key => $role): ?>
+								<li class='<?php echo $key; ?>'>
+									<input type='hidden' name='selected-role[]' value='<?php echo $key; ?>'>
+									<img src='<?php echo $this->baseUrl(); ?>/usr/images/back.png'>&nbsp;&nbsp;
+									<span><?php echo $role; ?></span>
+							<?php endforeach; ?>
+							<?php endif; ?>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='span-24 append-bottom prepend-top'>
+			<strong>Default module</strong>
+			<div class='small quiet'>
+				Choose which module you want to have the account
+				directed to upon login.
+			</div>
+			<div class='permission-block'>
+				<select name='defaultModule'>
+				<?php foreach($this->modules as $module): ?>
+					<?php if ($module == 'default'): ?>
+					<option value='<?php echo $module; ?>' selected='selected'><?php echo $module; ?>
+					<?php else: ?>
+					<option value='<?php echo $module; ?>'><?php echo $module; ?>
+					<?php endif; ?>
+				<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+
+		<hr class='space'/>
+
+		<div class='span-20 last clearfix form-ops' style='text-align: center;'>
+			<input id='btn-save' type='button' value='Save'>
+			<a class='hypertext' style='padding-left: 20px;' href='<?php echo $this->baseUrl(); ?>/admin'>cancel</a>
+		</div>
+	</form>
+</div>
+	</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

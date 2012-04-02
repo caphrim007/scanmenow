@@ -1,0 +1,42 @@
+<?php require _MODPATH.'/setup/views/scripts/header/index.phtml'; ?>
+
+<div class='span-22 last'>
+	<div class='span-22'>
+		<div class='span-22' style='font-size: 1.5em;'>
+			<a href='<?php echo $this->baseUrl(); ?>/setup' class='hypertext'>Setup</a> &raquo;
+			Tags
+		</div>
+	</div>
+</div>
+<hr class='space'/>
+<div class='span-22'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+
+	<form id='form-submit'>
+		<strong>About</strong>
+		<div class='prepend-top'>
+			<p>
+			While this page loaded, savory created and saved several tags on your system
+			that it will use during operation.
+			</p>
+			<p>
+			Tags allow savory to categorize specific URLs, applying common terms to each
+			URL that can then be used when searching or exporting URLs from savory. That
+			way you'll see only what you want to see.
+			</p>
+		</div>
+
+		<div class='span-22 append-bottom prepend-top'>
+			<div class='span-11'>
+				&laquo; <a class='hypertext' href='<?php echo $this->baseUrl(); ?>/setup/queues'>Queues</a>
+			</div>
+			<div class='span-11 last' style='text-align: right;'>
+				<a class='hypertext' href='<?php echo $this->baseUrl(); ?>/setup/automation'>Automation</a> &raquo;
+			</div>
+		</div>
+	</form>
+</div>
+
+<?php require _MODPATH.'/setup/views/scripts/footer/index.phtml'; ?>

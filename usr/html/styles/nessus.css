@@ -1,0 +1,461 @@
+/**
+* Taken directly from the Nessus Executive Summary report
+*/
+
+/* zero out */
+html {
+	margin:0;
+	padding:0;
+	background: url(usr/images/nessus/bgHTML.png) repeat top center;
+}
+
+/* basic formatting */
+body {
+	margin:0;
+	padding:0;
+	background: url(usr/images/nessus/bgRptBody.png) repeat-x top center;
+	color: #69737b;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-top: #000 solid 1px;
+}
+
+/* container formatting */
+#container {
+	position: relative;
+}
+
+.container_16 {
+	margin-left:auto;
+	margin-right:auto;
+	width:960px;
+}
+
+/* header formatting */
+#reportHeader {
+	background-color:#234e67;
+	height:43px;
+	width:940px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+}
+
+.reportHeaderLogo {
+	background: url(usr/images/nessus/NessusLogoScreen.png) no-repeat left top;
+}
+
+.reportHeaderLogo a {
+	text-decoration: none;
+	text-transform:uppercase;
+	font: 10px/12px Arial, Helvetica, sans-serif;
+	color:#7ea5bd;
+	font-stretch:ultra-expanded;
+}
+
+.reportHeaderLogo a.active {
+	color:#FFF;
+}
+
+.reportHeaderLogo ul {
+	list-style: outside none outside;
+	margin: 10px 0;
+	float:right;
+}
+
+.reportHeaderLogo li {
+	border-left: 2px solid #427796;
+	display:inline;
+	margin: 0 10px;
+	padding: 0 20px;
+}
+
+.reportHeaderLogo ul li:first-child  {
+	border-left:0 none;
+	padding:0;
+}
+
+/* main content of page */
+#reportContent {
+	background: #FFF;
+	width:920px;
+	height:auto;
+	margin:10px auto;
+	padding: 0 10px 10px 10px;
+	box-shadow: inset #d8d8d8;
+}
+
+/* table intro header and text */
+#tableTitle {
+	margin-top:.2em;
+}
+
+#tableTitle h1 {
+	color: #ffc923;
+	font: bold 24px/30px 'Trebuchet MS', sans-serif;
+	margin-bottom:.2em;
+	float:left;
+}
+
+#tableTitle p {
+	font:bold 12px/14px Arial, Helvetica, sans-serif;
+	color:#053958;
+	margin-top:.1em;
+}
+
+/* span balances print link with H1 */          
+#tableTitle span {
+	float:left;
+	width:100%;
+}
+
+#tableTitle span p {
+	float:right;
+	margin:2em 3.4em 0 0;
+	width:1.5em;
+}
+
+#tableTitle span a {
+	color:#244e67;
+	font:bold 10px/12px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+}
+
+/* table + cell formatting */
+table {
+	font: bold 12px/14px Arial, Helvetica, sans-serif;
+	color:#053958;
+	width:100%;
+	border-collapse:collapse;
+}
+
+table tr th, table tr td {
+	text-align:left;
+	height:25px;
+	margin-top:5px;
+	padding: 0 10px;
+}
+
+table th {
+	background:#053958;
+	color:#FC3;
+	text-transform:uppercase;
+	cursor: pointer;
+}
+
+table tr td a {
+	color:#053958;
+}
+
+table tr td a.visited {
+	color:#8c8c8c;
+}
+
+table tr.odd {
+	background:#eef2f3;
+}
+
+table tr td.high {
+	color:#c51010;
+}
+
+table tr td.med {
+	color:#e3801c;
+}
+
+table tr td.low {
+	color:#427796;
+}
+
+table tr td span.less {
+	font-weight:normal;
+}
+
+table tr td span.grey {
+	color:#69737b;
+}
+
+div#overview { 
+	margin-bottom:300px;
+}
+
+div#portGeneral, div#portGenExpanded, div#portSpecific {
+	margin-bottom:50px;
+}
+
+div#portSpecific table tr td:first-child {
+	width:150px;
+}
+
+div#portSpecific table tr td {
+	font: bold 14px/16px Arial, Helvetica, sans-serif;
+}
+
+a.return {
+	text-decoration:underline;
+	text-transform:uppercase;
+	font: 10px/12px Arial, Helvetica, sans-serif;
+	color:#527a90;
+	float:right;
+	padding-top:10px;
+}
+
+/* port general, port general expanded - nontabular */
+div#portGeneral, div#portGenExpanded {
+	background-color:#eef2f3;
+	font: bold 14px/16px Arial, Helvetica, sans-serif;
+	color:#053958;
+}
+
+div#portGeneral div.inner, div#portGenExpanded div.inner {
+	padding:10px;
+}
+
+div#portGeneral div.inner p:first-child, div#portGenExpanded div.inner div p {
+	margin-top:0;
+}
+
+div#portGenExpanded div.inner div p.fc {
+	float:left; 
+	width:250px; 
+	display:inline;
+}
+
+div#portGeneral h2, div#portGenExpanded h2 {
+	background:#053958;
+	color:#FC3;
+	font:bold 12px/14px Arial,Helvetica,sans-serif;
+	text-transform:uppercase;
+	cursor: pointer;
+	padding: 0 10px;
+	line-height:25px;
+}
+
+div#portGeneral div.inner a, div#portGenExpanded div.inner a {
+	color:#053958;
+}
+
+div#portGeneral a.visited, div#portGenExpanded div.inner a.visited {
+	color:#8c8c8c;
+}
+
+div#portGeneral p {
+	line-height:1.3em;
+	margin-bottom:.1em;
+}
+
+div#portGeneral p.high, div#portGenExpanded p.high {
+	color:#c51010;
+}
+
+div#portGeneral p.med, div#portGenExpanded p.med {
+	color:#e3801c;
+}
+
+div#portGeneral p.low, div#portGenExpanded p.low {
+	color:#427796;
+}
+
+div#portGeneral span.less, div#portGenExpanded span.less {
+	font-weight:normal;
+}
+
+div#portGeneral span.grey, div#portGenExpanded span.grey {
+	color:#69737b;
+}
+
+div#portGenExpanded p {
+	line-height:1.5em;
+	margin-bottom:.1em;
+}
+
+div#portGenExpanded ul {
+	list-style-type:none; 
+	padding-left:0; 
+	padding-top:0; 
+	line-height:1.5em;
+	font-weight:normal;
+}
+
+div#portGeneral hr, div#portGenExpanded hr {
+	margin-bottom:1.2em;
+	line-height:1em;
+	border:#d2d9db solid 1px;
+}
+
+div#portGeneral hr.blue, div#portGenExpanded hr.blue {
+	border:solid 1px #7ea5bd;
+}
+
+div#portGeneral span a, div#portGenExpanded span a {
+	line-height:20px;
+}
+
+pre {
+	color:#69737b;font-weight:normal;
+	font-family:Arial, Helvetica, sans-serif;
+	white-space:pre-wrap;
+}
+
+div#synopsis {
+	margin-bottom:50px;
+}
+
+/* page title */
+#dashboardTitle {
+	margin-top:.2em;
+}
+
+#dashboardTitle h1 {
+	color: #ffc923;
+	font: bold 24px/30px 'Trebuchet MS', sans-serif;
+	margin-bottom:.2em;
+	float:left;
+}
+
+#dashboardTitle p {
+	font:bold 12px/14px Arial, Helvetica, sans-serif;
+	color:#053958;
+	margin-top:.1em;
+}
+
+/* span balances print link with H1 */          
+#dashboardTitle span {
+	width:100%;
+}
+
+#dashboardTitle span span {
+	color:#244e67;
+}
+
+#dashboardTitle span a {
+	color:#244e67;
+	font:bold 10px/12px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+}
+
+#dashboardTitle span p{
+	float:right;
+	margin:2em 3.4em 0 0;
+	width:1.5em;
+}
+
+/* allows floating of elements and tables */
+div#contentWrap {
+	width:960px;
+} /* provides wrap for below table placement */
+
+div#contentLeft {
+	width:750px;
+	float:left;
+} /* contains two tables floated left */
+
+div#contentRight {
+	width:160px;
+	margin-left:15px;
+	float:left;
+} /* contains one long table floated left, appearing to right */
+
+/* table set up */
+div#synopsis table {
+	width:100%;
+}
+
+div#overview table.overviewTitle {
+	width:100%;
+}
+
+div#overview table.overviewData {
+	width:350px;
+}
+
+div#chart {
+	float:left;
+}
+
+div#synopsis table tr td:first-child {
+	width:150px;
+}
+
+div#synopsis table tr th:last-child {
+	width:70px;
+	color:#FFF;
+	font:bold 10px/12px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	text-align:right;
+}
+
+div#synopsis {
+	margin-bottom:50px;
+}
+
+/* page title */
+#dashboardTitle {
+	margin-top:.2em;
+}
+
+#dashboardTitle h1 {
+	color: #ffc923;
+	font: bold 24px/30px 'Trebuchet MS', sans-serif;
+	margin-bottom:.2em;
+	float:left;
+}
+
+#dashboardTitle p {
+	font:bold 12px/14px Arial, Helvetica, sans-serif;
+	color:#053958;
+	margin-top:.1em;
+}
+
+/* span balances print link with H1 */          
+#dashboardTitle span {
+	width:100%;
+}
+
+#dashboardTitle span span {
+	color:#244e67;
+}
+
+#dashboardTitle span a {
+	color:#244e67;
+	font:bold 10px/12px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+}
+
+#dashboardTitle span p{
+	float:right;
+	margin:2em 3.4em 0 0;
+	width:1.5em;
+}
+
+/* allows floating of elements and tables */
+div#contentWrap {
+	width:960px;
+} /* provides wrap for below table placement */
+
+div#contentLeft {
+	width:750px;
+	float:left;
+} /* contains two tables floated left */
+
+div#contentRight {
+	width:160px;
+	margin-left:15px;
+	float:left;
+} /* contains one long table floated left, appearing to right */
+
+/* table set up */
+div#overview table, div#synopsis table {
+	width:100%;
+}
+
+div#synopsis table tr td:first-child {
+	width:150px;
+}
+
+div#synopsis table tr th:last-child {
+	width:70px;
+	color:#FFF;
+	font:bold 10px/12px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	text-align:right;
+}

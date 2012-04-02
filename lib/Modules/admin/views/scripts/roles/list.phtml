@@ -1,0 +1,39 @@
+<?php if (!empty($this->roles)): ?>
+	<table class='role-list'>
+	<?php foreach($this->roles as $role): ?>
+		<?php if ($role['immutable'] == 0): ?>
+		<tr class='row role-row-selectable'>
+		<?php else: ?>
+		<tr class='row'>
+		<?php endif; ?>
+			<td>
+				<?php if ($role['immutable'] == 0): ?>
+				<input class='role-checkbox' type='checkbox' name='role-id[]' value='<?php echo $role['id']; ?>'>
+				<?php endif; ?>
+			</td>
+			<td class='name'>
+				<a class='hypertext' href='<?php echo $this->baseUrl() ;?>/admin/roles/edit?id=<?php echo $role['id']; ?>'><?php echo $role['name'] ; ?></a>
+			</td>
+			<td class='description'>
+				<?php if(strlen($role['description']) > 200): ?>
+					<?php echo substr($role['description'], 0, 200).'...'; ?>
+				<?php else: ?>
+					<span class='quiet'><?php echo $role['description']; ?></span>
+				<?php endif; ?>
+			</td>
+			<?php if ($role['immutable'] == 0): ?>
+				<td class='trash-icon'>
+					<input type='hidden' name='id' value='<?php echo $role['id']; ?>'>
+					<a href='<?php echo $this->baseUrl(); ?>/admin/roles/delete'><img src='<?php echo $this->baseUrl(); ?>/usr/images/trash.gif' alt='delete role'></a>
+				</td>
+			<?php else: ?>
+				<td style='border-bottom: 1px solid #eee; cursor: pointer; width: 5%; text-align: center;'>&nbsp;</td>
+			<?php endif; ?>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php else: ?>
+	<div class='notice'>
+		No roles are defined. Create one <a href='<?php echo $this->baseUrl(); ?>/admin/roles/edit?id=_new'>now</a>
+	</div>
+<?php endif; ?>

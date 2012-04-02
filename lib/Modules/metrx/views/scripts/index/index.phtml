@@ -1,0 +1,33 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+<div class='span-22 last'>
+	<div class='span-12' style='font-size: 1.5em;'>
+		Metrx
+	</div>
+</div>
+<hr class='space'/>
+<div class='span-22'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+
+	<div id='mainTabs' class='span-22'>
+		<div id='tabs' class='span-22' style='margin-right: -1px !important;'>
+			<ul class='span-22'>
+				<li><a href='#charts'>Charts</a></li>
+				<li><a href='#reports'>Reports</a></li>
+				<li><a href='#tables'>Tables</a></li>
+			</ul>
+
+			<?php require _MODPATH.'/metrx/views/scripts/index/forms/charts.phtml'; ?>
+			<?php require _MODPATH.'/metrx/views/scripts/index/forms/reports.phtml'; ?>
+			<?php require _MODPATH.'/metrx/views/scripts/index/forms/tables.phtml'; ?>
+		</div>
+	</div>
+</div>
+	</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>

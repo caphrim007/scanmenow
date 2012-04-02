@@ -1,0 +1,67 @@
+<div id='paths' class='span-22'>
+	<form class='form-submit'>
+		<div class='span-22 append-bottom'>
+			<strong>Application paths</strong>
+			<div class='small quiet'>
+				Paths to binaries used by tools packaged with savory
+			</div>
+
+			<div class='prepend-1 prepend-top'>
+				<div class='span-20'>
+					Expect
+					<div>
+						<?php if (isset($this->config->expect->path)): ?>
+						<input type='text' name='expect' value='<?php echo $this->config->expect->path; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='expect' value='/usr/bin/expect' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20 prepend-top'>
+					Java
+					<div>
+						<?php if (isset($this->config->java->path)): ?>
+						<input type='text' name='java' value='<?php echo $this->config->java->path; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='java' value='/usr/bin/java' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20 prepend-top'>
+					Python
+					<div>
+						<?php if (isset($this->config->python->path)): ?>
+						<input type='text' name='python' value='<?php echo $this->config->python->path; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='python' value='/usr/bin/python' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20 prepend-top'>
+					gzip
+					<div>
+						<?php if (isset($this->config->gzip->path)): ?>
+						<input type='text' name='gzip' value='<?php echo $this->config->gzip->path; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='gzip' value='/bin/gzip' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class='span-20 prepend-top'>
+					gpg
+					<div>
+						<?php if (isset($this->config->gpg->path)): ?>
+						<input type='text' name='gpg' value='<?php echo $this->config->gpg->path; ?>' class='span-20'>
+						<?php else: ?>
+						<input type='text' name='gpg' value='/usr/bin/gpg' class='span-20'>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

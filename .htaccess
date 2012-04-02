@@ -1,0 +1,32 @@
+RewriteEngine On
+
+<FilesMatch "(sandbox|start|stop|build)\.(php|py|xml)">
+	Order Allow,Deny
+	Deny from all
+</FilesMatch>
+
+RewriteCond %{SERVER_PORT} =80
+RewriteCond %{SERVER_NAME} ^cstweb.*
+RewriteRule (.*) https://cstweb.fnal.gov/scanmenow/$1 [L]
+
+RewriteCond %{SERVER_PORT} =80
+RewriteCond %{SERVER_NAME} ^cst-dev-tst.*
+RewriteRule (.*) https://cst-dev-tst.fnal.gov/scanmenow/$1 [L]
+
+RewriteRule ^.*/images/(.*\.png|gif)$ usr/images/$1 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^api/v1/rest api/v1/rest/index.php [L]
+RewriteRule ^.*$ index.php [NC,L]
+
+<Limit GET POST>
+        Order Deny,Allow
+        Deny from all
+        Allow from 127.0.0.1
+        Allow from 131.225
+	Allow from 198.49.208
+	Allow from 192.168.86
+</Limit>

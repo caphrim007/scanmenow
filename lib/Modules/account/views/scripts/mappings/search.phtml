@@ -1,0 +1,55 @@
+<?php if (empty($this->results)): ?>
+	<div style='color: #aaa; font-size: 10px; padding: 10px;'>
+		There are no existing account maps. Create one <span class='hypertext create-mapping'>now</span>
+	</div>
+<?php else: ?>
+	<div class='selectable span-15 prepend-top'>
+	<?php foreach ($this->results as $key => $map): ?>
+		<?php if (count($this->results) == 1): ?>
+		<div class='row parked span-15 no-border'>
+		<?php elseif ((count($this->results) - 1) == $key): ?>
+		<div class='row parked span-15 no-border' style='padding: 5px 0 0 0;'>
+		<?php elseif ($key == 0): ?>
+		<div class='row parked span-15' style='padding: 0 0 5px 0;'>
+		<?php else: ?>
+		<div class='row parked span-15' style='padding: 5px 0 5px 0;'>
+		<?php endif; ?>
+			<div class='span-1'>
+				<input type='checkbox' name='mapId' value='<?php echo $map['id']; ?>'>
+			</div>
+			<div class='name span-11'>
+				<?php echo $map['username'] ; ?>
+			</div>
+			<div class='icons span-3 last'>
+				<img class='trash' src='<?php echo $this->baseUrl(); ?>/usr/images/trash.gif' alt='delete mapping'>
+			</div>
+		</div>
+	<?php endforeach; ?>
+	</div>
+
+	<?php if (count($this->results) == $this->limit): ?>
+	<div class='span-15 prepend-top'>
+		<div class='span-7'>&nbsp;</div>
+		<div class='span-8 last' style='text-align: right;'>
+			<?php if ($this->page > 1): ?>
+			<span class='show-less hypertext'>&laquo; less</span>
+			<?php else: ?>
+			&nbsp;
+			<?php endif; ?>
+			&nbsp;&nbsp;&nbsp;
+			<span class='show-more hypertext'>more &raquo;</span>
+		</div>
+	</div>
+	<?php else: ?>
+	<div class='span-14 prepend-top'>
+		<div class='span-7'>&nbsp;</div>
+		<?php if ($this->page > 1): ?>
+		<div class='span-8 last' style='text-align: right;'>
+			<span class='show-less hypertext'>&laquo; less</span>
+		</div>
+		<?php else: ?>
+		<div class='span-8 last'>&nbsp;</div>
+		<?php endif; ?>
+	</div>
+	<?php endif; ?>
+<?php endif; ?>

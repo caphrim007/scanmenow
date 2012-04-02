@@ -1,0 +1,45 @@
+<?php require _MODPATH.'/default/views/scripts/header/index.phtml'; ?>
+
+<div class='pagehead span-24'>
+	<div class='wrapper content'>
+<div class='span-22 last'>
+	<div class='span-12' style='font-size: 1.5em;'>
+		Miscellaneous Configurations
+	</div>
+</div>
+<hr class='space'/>
+<div class='span-22'>
+	<form id='form-edit'>
+		<input type='hidden' name='base-url' value='<?php echo $this->baseUrl(); ?>'>
+	</form>
+
+	<div id='mainTabs' class='span-22'>
+		<div id='tabs' class='span-22' style='margin-right: -1px !important;'>
+			<ul class='span-22'>
+				<li><a href='#database'>Database</a></li>
+				<li><a href='#datasource'>Datasources</a></li>
+				<li><a href='#paths'>Paths</a></li>
+				<li><a href='#ws'>Web services</a></li>
+			</ul>
+
+			<?php require _MODPATH.'/config/views/scripts/modify/forms/database.phtml'; ?>
+			<?php require _MODPATH.'/config/views/scripts/modify/forms/datasource.phtml'; ?>
+			<?php require _MODPATH.'/config/views/scripts/modify/forms/paths.phtml'; ?>
+			<?php require _MODPATH.'/config/views/scripts/modify/forms/ws.phtml'; ?>
+		</div>
+
+		<div id='save-failure' class='message error'></div>
+
+		<div class='span-20 last clearfix form-ops' style='text-align: center;'>
+			<form class='form-config' method='post' action='<?php echo $this->baseUrl(); ?>/config/modify/save'>
+				<input id='btn-save' type='button' value='Save'>
+				&nbsp;&nbsp;&nbsp;
+				<a class='hypertext cancel' href='<?php echo $this->baseUrl(); ?>/admin'>cancel</a>
+			</form>
+		</div>
+	</div>
+</div>
+	</div>
+</div>
+
+<?php require _MODPATH.'/default/views/scripts/footer/index.phtml'; ?>
